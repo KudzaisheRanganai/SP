@@ -42,6 +42,9 @@ $(document).ready(function(){
                 {
                     $('#alert-login').append("<div class='alert alert-danger py-2' role='alert'><span class='alert-inner--text'>Login failed! </span></div>");    
                 }
+            })
+            .always(function() {
+                $('.loadingModal').modal('hide');
             });
         }
         else
