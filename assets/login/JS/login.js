@@ -1,6 +1,6 @@
 $(document).ready(function(){
 
-    //$('.loadingModal').modal();
+    $('.loadingModal').modal();
 
     $("#login_button").click(function(e){
         e.preventDefault();
@@ -21,7 +21,7 @@ $(document).ready(function(){
                 }
             })
             .done(response => {
-                $('.loadingModal').hide();
+                $('.loadingModal').modal('hide');
 
                 console.log(response);
                 if(response=="success")
