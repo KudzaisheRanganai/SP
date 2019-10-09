@@ -231,7 +231,7 @@
                     <a href="pages/delivery_collection/maintain-assigned-truck.php">
                       <div>
                         <i class="far fa-edit"></i>
-                        <span>Maintain Assigned Truck</span>
+                        <span>Maintain Assigned Deliveries</span>
                       </div>
                     </a>
                   </button>
@@ -248,7 +248,7 @@
                     <a href="pages/delivery_collection/finalise-assigned-truck.php">
                       <div>
                         <i class="far fa-check-square"></i>
-                        <span>Finalise Assigned Truck</span>
+                        <span>Finalise Assigned Deliveries</span>
                       </div>
                     </a>
                   </button>

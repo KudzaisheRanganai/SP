@@ -173,10 +173,10 @@
                 <button class="btn btn-icon btn-2 btn-success mt-0 " type="button" data-toggle="modal" id="btnSave">
                   <span class="btn-inner--text">Submit</span>
                 </button>
-                <button class="btn btn-icon btn-2 btn-danger mt-0 float-right" type="button" data-toggle="modal" data-target="#force">
+                <!-- <button class="btn btn-icon btn-2 btn-danger mt-0 float-right" type="button" data-toggle="modal" data-target="#force">
                   <span><i class="fas fa-exclamation-triangle"></i></span>
                   <span class="btn-inner--text">Force Receival</span>
-                </button>
+                </button> -->
               </div>
               <div class="modal fade" id="del" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                 <div class="modal-dialog modal-dialog-centered" role="document">

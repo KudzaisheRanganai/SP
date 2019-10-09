@@ -1,6 +1,7 @@
 <?php 
   include_once("../sessionCheckPages.php");
   include_once("PHPcode/functions.php");
+  $help="../../help/PlaceSupplierOrder.html";
 ?>
 <?php
 

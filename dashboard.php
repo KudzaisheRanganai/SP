@@ -1,4 +1,6 @@
-<?php include_once("sessionCheckLanding.php");?>
+<?php include_once("sessionCheckLanding.php");
+  $help="help/Introduction.html";
+?>
 <!DOCTYPE html>
 <html>
 <head>
