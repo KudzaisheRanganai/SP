@@ -1,0 +1,372 @@
+<?php
+    include_once("../sessionCheckPages.php");
+    include_once("PHPcode/connection.php");
+    include_once("PHPcode/functions.php");
+    $truckData=getAllTrucks($con);
+    $deliveryData=getUnassignedDeliveries($con,1);
+    $addressData=getCompleteAddress($con);
+    $saleData=getSalesCustomer($con);
+    $saleProductData=getAllSaleProducts($con);
+    $productData=getProductDetails($con);
+    $truckProductData=getTruckProductData($con);
+    $deliveryTruckData=getDeliveryTruckData($con);
+?>
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="Start your development with a Dashboard for Bootstrap 4.">
+  <meta name="author" content="Creative Tim">
+  <title>Assign Truck - Stock Path</title>
+  <!-- Favicon -->
+  <link href="../../assets/img/brand/favicon.png" rel="icon" type="image/png">
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet">
+  <!-- Icons -->
+  <link href="../../assets/vendor/nucleo/css/nucleo.css" rel="stylesheet">
+  <link href="../../assets/vendor/@fortawesome/fontawesome-free/css/all.min.css" rel="stylesheet">
+  <!-- Argon CSS -->
+  <link type="text/css" href="../../assets/css/argon.css?v=1.0.0" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="https://js.api.here.com/v3/3.1/mapsjs-ui.css" />
+  <script type="text/javascript" src="https://js.api.here.com/v3/3.1/mapsjs-core.js"></script>
+    <script type="text/javascript" src="https://js.api.here.com/v3/3.1/mapsjs-service.js"></script>
+    <script type="text/javascript" src="https://js.api.here.com/v3/3.1/mapsjs-ui.js"></script>
+    <script type="text/javascript" src="https://js.api.here.com/v3/3.1/mapsjs-mapevents.js"></script>
+    <script type="text/javascript" src="https://js.api.here.com/v3/3.1/mapsjs-core.js"></script>
+    <script type="text/javascript" src="https://js.api.here.com/v3/3.1/mapsjs-service.js"></script>
+    <script type="text/javascript" src="https://js.api.here.com/v3/3.1/mapsjs-ui.js"></script>
+    <script type="text/javascript" src="https://js.api.here.com/v3/3.1/mapsjs-mapevents.js"></script>
+    <!-- <script src="http://maps.google.com/maps/api/js?sensor=false" 
+          type="text/javascript"></script> -->
+    <style type="text/css">
+      .directions li span.arrow {
+        display:inline-block;
+        min-width:28px;
+        min-height:28px;
+        background-position:0px;
+        background-image: url("https://heremaps.github.io/maps-api-for-javascript-examples/map-with-route-from-a-to-b/img/arrows.png");
+        position:relative;
+        top:8px;
+      }
+      .directions li span.depart  {
+        background-position:-28px;
+      }
+      .directions li span.rightUTurn  {
+        background-position:-56px;
+      }
+      .directions li span.leftUTurn  {
+        background-position:-84px;
+      }
+      .directions li span.rightFork  {
+        background-position:-112px;
+      }
+      .directions li span.leftFork  {
+        background-position:-140px;
+      }
+      .directions li span.rightMerge  {
+        background-position:-112px;
+      }
+      .directions li span.leftMerge  {
+        background-position:-140px;
+      }
+      .directions li span.slightRightTurn  {
+        background-position:-168px;
+      }
+      .directions li span.slightLeftTurn{
+        background-position:-196px;
+      }
+      .directions li span.rightTurn  {
+        background-position:-224px;
+      }
+      .directions li span.leftTurn{
+        background-position:-252px;
+      }
+      .directions li span.sharpRightTurn  {
+        background-position:-280px;
+      }
+      .directions li span.sharpLeftTurn{
+        background-position:-308px;
+      }
+      .directions li span.rightRoundaboutExit1 {
+        background-position:-616px;
+      }
+      .directions li span.rightRoundaboutExit2 {
+        background-position:-644px;
+      }
+      
+      .directions li span.rightRoundaboutExit3 {
+        background-position:-672px;
+      }
+      
+      .directions li span.rightRoundaboutExit4 {
+        background-position:-700px;
+      }
+      
+      .directions li span.rightRoundaboutPass {
+        background-position:-700px;
+      }
+      
+      .directions li span.rightRoundaboutExit5 {
+        background-position:-728px;
+      }
+      .directions li span.rightRoundaboutExit6 {
+        background-position:-756px;
+      }
+      .directions li span.rightRoundaboutExit7 {
+        background-position:-784px;
+      }
+      .directions li span.rightRoundaboutExit8 {
+        background-position:-812px;
+      }
+      .directions li span.rightRoundaboutExit9 {
+        background-position:-840px;
+      }
+      .directions li span.rightRoundaboutExit10 {
+        background-position:-868px;
+      }
+      .directions li span.rightRoundaboutExit11 {
+        background-position:896px;
+      }
+      .directions li span.rightRoundaboutExit12 {
+        background-position:924px;
+      }
+      .directions li span.leftRoundaboutExit1  {
+        background-position:-952px;
+      }
+      .directions li span.leftRoundaboutExit2  {
+        background-position:-980px;
+      }
+      .directions li span.leftRoundaboutExit3  {
+        background-position:-1008px;
+      }
+      .directions li span.leftRoundaboutExit4  {
+        background-position:-1036px;
+      }
+      .directions li span.leftRoundaboutPass {
+        background-position:1036px;
+      }
+      .directions li span.leftRoundaboutExit5  {
+        background-position:-1064px;
+      }
+      .directions li span.leftRoundaboutExit6  {
+        background-position:-1092px;
+      }
+      .directions li span.leftRoundaboutExit7  {
+        background-position:-1120px;
+      }
+      .directions li span.leftRoundaboutExit8  {
+        background-position:-1148px;
+      }
+      .directions li span.leftRoundaboutExit9  {
+        background-position:-1176px;
+      }
+      .directions li span.leftRoundaboutExit10  {
+        background-position:-1204px;
+      }
+      .directions li span.leftRoundaboutExit11  {
+        background-position:-1232px;
+      }
+      .directions li span.leftRoundaboutExit12  {
+        background-position:-1260px;
+      }
+      .directions li span.arrive  {
+        background-position:-1288px;
+      }
+      .directions li span.leftRamp  {
+        background-position:-392px;
+      }
+      .directions li span.rightRamp  {
+        background-position:-420px;
+      }
+      .directions li span.leftExit  {
+        background-position:-448px;
+      }
+      .directions li span.rightExit  {
+        background-position:-476px;
+      }
+      .directions li span.ferry  {
+        background-position:-1316px;
+      }
+      </style>
+</head>
+
+<body>
+  <?php include_once("../header.php");?>
+   <!-- Main content -->
+   <!-- <img src='http://i.imgur.com/pKopwXp.gif' hidden="true" id="loadImage" alt='loading...' style="display:block; margin:0 auto;" /> -->
+  <div class="main-content">
+    <!-- Top navbar -->
+      <nav class="navbar navbar-top navbar-expand-md navbar-dark" id="navbar-main">
+        <div class="container-fluid">
+          <!-- Brand -->
+          <a class="h4 mb-0 text-white text-uppercase d-none d-lg-inline-block">Assign Truck</a>
+          <?php include_once("../usernavbar.php");?>
+          
+        </div>
+      </nav>
+    <!-- Header -->
+      <div class="header bg-gradient-custom pb-8 pt-5 pt-md-8">
+        <div class="container-fluid">
+          <div class="header-body">
+            <!-- Card stats -->
+            
+          </div>
+        </div>
+      </div>
+    <!-- Page content -->
+    <div class="container-fluid mt--8">
+
+        <div class="row">
+          
+          <div class="col" id="accordion" >
+            <div class="card bg-default">
+              <div class="card-body " id="headingOne">
+                <div class="row">
+                  <div class="col-10">
+                    <label hidden="true" id="tData"><?php echo json_encode($truckData);?></label>
+                    <h4 class="mb-0 text-white text-uppercas ">My Trucks</h4> 
+                </div>
+              </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-8">
+            <div class="car shadow border-0">
+               <!-- <div id="map">Hello</div> -->
+               <div id="map" style="height: 40rem; width: 100%; top: 0px; left: 0px; background-color: rgb(229, 227, 223);"></div>
+
+            <!-- <script type="text/javascript">
+              var locations = [
+                ['Bondi Beach', -33.890542, 151.274856, 4],
+                ['Coogee Beach', -33.923036, 151.259052, 5],
+                ['Cronulla Beach', -34.028249, 151.157507, 3],
+                ['Manly Beach', -33.80010128657071, 151.28747820854187, 2],
+                ['Maroubra Beach', -33.950198, 151.259302, 1]
+              ];
+
+              var map = new google.maps.Map(document.getElementById('map'), {
+                zoom: 10,
+                center: new google.maps.LatLng(-33.92, 151.25),
+                mapTypeId: google.maps.MapTypeId.ROADMAP
+              });
+
+              var infowindow = new google.maps.InfoWindow();
+
+              var marker, i;
+
+              for (i = 0; i < locations.length; i++) {  
+                marker = new google.maps.Marker({
+                  position: new google.maps.LatLng(locations[i][1], locations[i][2]),
+                  map: map
+                });
+
+                google.maps.event.addListener(marker, 'click', (function(marker, i) {
+                  return function() {
+                    infowindow.setContent(locations[i][0]);
+                    infowindow.open(map, marker);
+                  }
+                })(marker, i));
+              }
+            </script> -->
+
+            </div>
+          </div>
+
+        </div>
+        <div id="panel"></div>
+        <div class="row mt-5">
+        <div class="col-xl-8 mb-5 mb-xl-0">
+          <div class="card shadow">
+            <div class="card-header border-0 bg-default">
+              <div class="row align-items-center">
+                <div class="col ">
+                  <label hidden="true" id="dData"><?php echo json_encode($deliveryData);?></label>
+                  <label hidden="true" id="aData"><?php echo json_encode($addressData);?></label>
+                  <!-- <label hidden="true" id="subData"><?php echo json_encode($suburbData);?></label>
+                  <label hidden="true" id="citData"><?php echo json_encode($cityData);?></label> -->
+                   <label hidden="true" id="sData"><?php echo json_encode($saleData);?></label>
+                    <label hidden="true" id="spData"><?php echo json_encode($saleProductData);?></label>
+                    <label hidden="true" id="pData"><?php echo json_encode($productData);?></label>
+                    <label hidden="true" id="tpData"><?php echo json_encode($truckProductData);?></label>
+                    <label hidden="true" id="dtData"><?php echo json_encode($deliveryTruckData);?></label>
+                  <h3 class="mb-0 text-white">Deliveries Pending</h3>
+                </div>
+                <div class="col text-right">
+                  <a href="#!" class="btn btn-sm btn-primary">Nearest/Furthest</a>
+                  <a href="#!" class="btn btn-sm btn-primary">Newest/Oldest</a>
+                </div>
+              </div>
+            </div>
+            <div class="table-responsive">
+              <!-- Projects table -->
+              <table class="table align-items-center table-flush">
+                <thead class="thead-light">
+                  <tr>
+                    <th scope="col"></th>
+                    <th scope="col">Order/Inv NO#</th>
+                    <th scope="col">Date</th>
+                    <th scope="col">City</th>
+                    
+                  </tr>
+                </thead>
+                <tbody id="dBody">
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+        <div class="col-xl-4">
+          <div class="card shadow">
+            <div class="card-header  border-0 bg-gradient-succes">
+              <div class="row align-items-center">
+                <div class="col">
+                  <h3 class="mb-0 s">Delivery Item(s)</h3>
+                </div>
+                <div class="col text-right">
+                  <a href="#!" class="btn btn-lg btn-success" id="btnAssign">Assign</a>
+                </div>
+              </div>
+            </div>
+            <div class="table-responsive">
+              <!-- Projects table -->
+              <table class="table align-items-center table-flush">
+                <thead class="thead-light">
+                  <tr>
+                    <th scope="col">Qty</th>
+                    <th scope="col">Product Name</th>
+            
+                  </tr>
+                </thead>
+                <tbody id="enterProducts">
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+        </div>
+      </div>
+
+  
+ 
+
+      <?php include_once("../footer.php");?>
+ </div>
+  <!-- Argon Scripts -->
+  <!-- Core -->
+  <script src="../../assets/vendor/jquery/dist/jquery.min.js"></script>
+  <script src="../../assets/vendor/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+  <!-- Optional JS -->
+  <script src="../../assets/vendor/chart.js/dist/Chart.min.js"></script>
+  <script src="../../assets/vendor/chart.js/dist/Chart.extension.js"></script>
+  <!-- Argon JS -->
+  <script src="../../assets/js/argon.js?v=1.0.0"></script>
+  <!-- <script type="text/javascript" src="JS/assignTruckMap.js"></script> -->
+  <script type="text/javascript" src="JS/assignTruck.js"></script>
+  <script src="../InactivityLogoutPages/autologout.js"></script>
+</body>
+
+</html>

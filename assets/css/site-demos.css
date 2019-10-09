@@ -1,0 +1,48 @@
+#field
+{
+	margin-left:.5em;
+	float:left;
+}
+#field,label
+{
+	float:left;
+	font-family:Arial,Helvetica,sans-serif;
+	font-size:small
+}
+br
+{
+	clear:both
+}
+input
+{
+	border:1px solid #000;margin-bottom:.5em
+}
+input.error, textarea.error, select.error
+{
+	display: block;
+	border:1px solid red
+}
+label.error
+{
+	display: block;
+	clear: both;
+	background:url(validationImages/unchecked.png) no-repeat;
+	padding-left:16px;
+	margin-left:.3em
+}
+label.valid
+{
+	background:url(validationImages/checked.png) no-repeat;
+	display:block;
+	width:16px;
+	height:16px
+}
+span ~ div ~ input.error {
+  border:1px solid red
+}
+
+.error{
+  z-index:99;
+  position: relative;
+}
+

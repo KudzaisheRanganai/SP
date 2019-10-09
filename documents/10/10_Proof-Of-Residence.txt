@@ -1,0 +1,16 @@
+Good morning Dr W, Dr S 
+
+As per our previous presentation on our function specification , we brielfy went over some of our core functionality of 
+making a sale along with making a delivery. This presentation we have prepared is slightly similar as it it goes over the 
+same core functionality with we previously discussed , however it depecits and gives a great sense of how the system would
+function and look. Please do note that all the data used is dummy data and that the system is not fully functional. I will now
+hand over to Ms Sinclair (our salesperson)
+
+
+
+Once the sale has been finalised I the sales manager will proceed to add the sale delivery , 
+
+As the sales manager I will provide my password and provide price changes
+
+
+
