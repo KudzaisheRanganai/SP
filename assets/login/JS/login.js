@@ -1,7 +1,5 @@
 $(document).ready(function(){
 
-    $('.loadingModal').modal();
-
     $("#login_button").click(function(e){
         e.preventDefault();
         $('#alert-login').empty();

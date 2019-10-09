@@ -129,7 +129,7 @@
   </footer>
   </div>
   </div>
-  <div class="modal loadingModal fade bd-example-modal-lg justify-content-center" data-backdrop="static" data-keyboard="false" tabindex="-1">
+  <div class="modal loadingModal fade bd-example-modal-lg justify-content-center" role="dialog" aria-hidden="true" data-backdrop="static" tabindex="-1">
       <div class="modal-dialog modal-sm">
           <div class="modal-content px-auto" style="">
               <img class="loading" src="assets/img/loading/loading.gif">
