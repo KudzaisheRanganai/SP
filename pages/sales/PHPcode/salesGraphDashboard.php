@@ -1,18 +1,9 @@
 <?php		
 		
-		$url = 'mysql://lf7jfljy0s7gycls:qzzxe2oaj0zj8q5a@u0zbt18wwjva9e0v.cbetxkdyhwsb.us-east-1.rds.amazonaws.com:3306/c0t1o13yl3wxe2h3';
-	
-		$dbparts = parse_url($url);
-
-		$hostname = $dbparts['host'];
-		$username = $dbparts['user'];
-		$password = $dbparts['pass'];
-		$database = ltrim($dbparts['path'],'/');
-
-		$con = mysqli_connect($hostname, $username, $password, $database);
+		include_once("DBConnection.php");
 
 		//Check connection
-		if (!$con) {
+		if (!$DBConnect) {
           die("Connection failed: " . mysqli_connect_error());
           
           
@@ -43,7 +34,7 @@
                                 WHERE SALE_DATE LIKE '%$currentDate%'
                                 GROUP BY CAST(SALE_DATE AS DATE)";
     
-            $submit = mysqli_query($con,$alles_query);
+            $submit = mysqli_query($DBConnect,$alles_query);
             //var_dump($alles_query);
         }
         else if($salePeriod=="Weekly")
@@ -71,7 +62,7 @@
 
                // var_dump($alles_query);
         
-                $submit = mysqli_query($con,$alles_query);
+                $submit = mysqli_query($DBConnect,$alles_query);
         }
         else
         {
@@ -97,7 +88,7 @@
                                 WHERE SALE_DATE BETWEEN '$usedDate' AND  '$newDate'
                                 GROUP BY CAST(SALE_DATE AS DATE)";
         
-                $submit = mysqli_query($con,$alles_query);
+                $submit = mysqli_query($DBConnect,$alles_query);
         }
 
         
@@ -124,5 +115,7 @@
 	    else{
 	         echo json_encode("Empty");
 	    }
+
+        mysqli_close($DBConnect);
 
 	?>

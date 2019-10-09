@@ -1,19 +1,10 @@
 <?php		
 include_once("../../sessionCheckPages.php");
 
-		$url = 'mysql://lf7jfljy0s7gycls:qzzxe2oaj0zj8q5a@u0zbt18wwjva9e0v.cbetxkdyhwsb.us-east-1.rds.amazonaws.com:3306/c0t1o13yl3wxe2h3';
-	
-		$dbparts = parse_url($url);
-
-		$hostname = $dbparts['host'];
-		$username = $dbparts['user'];
-		$password = $dbparts['pass'];
-		$database = ltrim($dbparts['path'],'/');
-
-		$con = mysqli_connect($hostname, $username, $password, $database);
+		include_once("DBConnection.php");
 
 		//Check connection
-		if (!$con) {
+		if (!$DBConnect) {
           die("Connection failed: " . mysqli_connect_error());
           
           
@@ -44,7 +35,7 @@ include_once("../../sessionCheckPages.php");
                                 WHERE SALE_DATE LIKE '%$currentDate%'
                                 GROUP BY CAST(SALE_DATE AS DATE)";
     
-            $submit = mysqli_query($con,$alles_query);
+            $submit = mysqli_query($DBConnect,$alles_query);
             //var_dump($alles_query);
         }
         else if($salePeriod=="Weekly")
@@ -72,7 +63,7 @@ include_once("../../sessionCheckPages.php");
 
                // var_dump($alles_query);
         
-                $submit = mysqli_query($con,$alles_query);
+                $submit = mysqli_query($DBConnect,$alles_query);
         }
         else
         {
@@ -98,7 +89,7 @@ include_once("../../sessionCheckPages.php");
                                 WHERE SALE_DATE BETWEEN '$usedDate' AND  '$newDate'
                                 GROUP BY CAST(SALE_DATE AS DATE)";
         
-                $submit = mysqli_query($con,$alles_query);
+                $submit = mysqli_query($DBConnect,$alles_query);
         }
 
         
@@ -116,7 +107,7 @@ include_once("../../sessionCheckPages.php");
             $findIDs = "SELECT COUNT($prodID) as maxProducTID
                         FROM SALE_PRODUCT
                         WHERE PRODUCT_ID = '$prodID'";
-            $IDresult = mysqli_query($con,$findIDs);
+            $IDresult = mysqli_query($DBConnect,$findIDs);
             $idRow = mysqli_fetch_assoc($IDresult);
 
 
@@ -126,7 +117,7 @@ include_once("../../sessionCheckPages.php");
         //$row = mysqli_fetch_array($result);*/
         
         $getIDQuery = "SELECT * FROM USER WHERE USER_ID='$userID'";
-        $subIDQuery = mysqli_query($con , $getIDQuery);
+        $subIDQuery = mysqli_query($DBConnect , $getIDQuery);
 
         if(mysqli_num_rows($subIDQuery)>0)
         {
@@ -157,7 +148,7 @@ include_once("../../sessionCheckPages.php");
 			$Functionality_ID='12.1';
 			$userID = $_SESSION['userID'];
 			$audit_query="INSERT INTO AUDIT_LOG (AUDIT_DATE,USER_ID,SUB_FUNCTIONALITY_ID,CHANGES) VALUES('$DateAudit','$userID','$Functionality_ID','$changes')";
-			$audit_result=mysqli_query($con,$audit_query);  
+			$audit_result=mysqli_query($DBConnect,$audit_query);  
 
 	        //$vals['time_in']="d";
 	        echo json_encode($vals);
@@ -167,5 +158,7 @@ include_once("../../sessionCheckPages.php");
 	    else{
 	         echo json_encode("Empty");
 	    }
+
+        mysqli_close($DBConnect);
 
 	?>

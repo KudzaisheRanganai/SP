@@ -1,18 +1,9 @@
 <?php		
 	include_once("../../sessionCheckPages.php");
-		$url = 'mysql://lf7jfljy0s7gycls:qzzxe2oaj0zj8q5a@u0zbt18wwjva9e0v.cbetxkdyhwsb.us-east-1.rds.amazonaws.com:3306/c0t1o13yl3wxe2h3';
-	
-		$dbparts = parse_url($url);
-
-		$hostname = $dbparts['host'];
-		$username = $dbparts['user'];
-		$password = $dbparts['pass'];
-		$database = ltrim($dbparts['path'],'/');
-
-		$con = mysqli_connect($hostname, $username, $password, $database);
+		include_once("DBConnection.php");
 
 		//Check connection
-		if (!$con) {
+		if (!$DBConnect) {
           die("Connection failed: " . mysqli_connect_error());
           
           
@@ -44,10 +35,10 @@
                     WHERE WAGE.DATE_ISSUED BETWEEN '$usedDate' AND '$currentDate' 
                     GROUP BY EMPLOYEE_ID";
             
-        $submit = mysqli_query($con,$alles_query);
+        $submit = mysqli_query($DBConnect,$alles_query);
 
         $getIDQuery = "SELECT * FROM USER WHERE USER_ID='$userID'";
-        $subIDQuery = mysqli_query($con , $getIDQuery);
+        $subIDQuery = mysqli_query($DBConnect , $getIDQuery);
 
         if(mysqli_num_rows($subIDQuery)>0)
         {
@@ -73,7 +64,7 @@
               $ac = "SELECT CHECK_IN_TIME,CHECK_OUT_TIME 
               FROM EMPLOYEE_HOUR
               WHERE EMPLOYEE_ID = '$employeeId' AND DATE >= '$usedDate' ";
-              $result = mysqli_query($con,$ac);
+              $result = mysqli_query($DBConnect,$ac);
     
               $checkTimeArray = [];
               $checkInTime;
@@ -102,13 +93,16 @@
 			$Functionality_ID='12.3';
 			$userID = $_SESSION['userID'];
 			$audit_query="INSERT INTO AUDIT_LOG (AUDIT_DATE,USER_ID,SUB_FUNCTIONALITY_ID,CHANGES) VALUES('$DateAudit','$userID','$Functionality_ID','$changes')";
-			$audit_result=mysqli_query($con,$audit_query);  
+			$audit_result=mysqli_query($DBConnect,$audit_query);  
 
 
             echo json_encode($employeeFullArray);
 	    }
-	    else{
-	         echo "Empty";
+	    else
+        {
+	       echo "Empty";
 	    }
+
+        mysqli_close($DBConnect);
 
 	?>
