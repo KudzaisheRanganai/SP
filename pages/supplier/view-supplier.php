@@ -21,7 +21,7 @@
     $cityInfo[$i]=getCityInfo($con,$suburbInfo[$i]["CITY_ID"]);
   }
   mysqli_close($con);
-
+  $help="../../help/AddSupplier.html";
 
 ?>
 

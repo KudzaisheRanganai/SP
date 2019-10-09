@@ -59,7 +59,7 @@
                       <div class="col">
                         <div class="row">
                           <div class=" col-sm-12 col-lg-4 col-md-4">
-                              <label for="bane">Minutes Of Inacticity Till Logout</label>
+                              <label for="bane">Minutes Of Inactivity Till Logout</label>
                               <input type="number" min="0" max="60" class="form-control" id="minutesTillLogout" value="" aria-describedby="emailHelp" placeholder="Enter minutes">
                           </div>
         

@@ -9,6 +9,9 @@
     <div class="col-xl-8">
       <ul class="nav nav-footer justify-content-center justify-content-xl-end">
         <li class="nav-item">
+          <a href="#" class="nav-link" data-toggle="modal" data-target="#generate">Video</a>
+        </li>
+        <li class="nav-item">
           <a href='<?php echo($help); ?>' target="_blank" class="nav-link" ><i class="fa fa-question-circle mr-1"></i>Help</a>
         </li>
         <li class="nav-item">
