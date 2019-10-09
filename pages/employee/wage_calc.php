@@ -2,7 +2,7 @@
  include_once("../../sessionCheckLanding.php");
  $help="../../help/CollectWage.html";
  
-include_once("DBConnection.php");
+include_once("PHPcode/DBConnection.php");
 
 if($DBConnect === false)
 {

@@ -5,7 +5,7 @@
 ?>
 <?php
 
-  include_once("DBConnection.php");
+  include_once("PHPcode/DBConnection.php");
 
   if($DBConnect === false)
   {

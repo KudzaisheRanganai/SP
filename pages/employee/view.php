@@ -31,7 +31,7 @@
   {
     //include_once("PHPcode/connection.php");
     //include_once("PHPcode/functions.php");
-    include_once("DBConnection.php");
+    include_once("PHPcode/DBConnection.php");
     
     if($DBConnect === false)
     {
