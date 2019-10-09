@@ -15,11 +15,11 @@ $(document).ready(function(){
                 type:'post',
                 data:{email:email, password:password},
                 beforeSend: function(){
-                    $('#loadingModal').modal('show');
+                    $('.loadingModal').modal('show');
                 }
             })
             .done(response => {
-                $('#loadingModal').modal('hide');
+                $('.loadingModal').modal('hide');
 
                 console.log(response);
                 if(response=="success")
