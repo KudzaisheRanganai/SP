@@ -1,4 +1,7 @@
 $(document).ready(function(){
+
+    //$('.loadingModal').modal();
+
     $("#login_button").click(function(e){
         e.preventDefault();
         $('#alert-login').empty();
@@ -18,7 +21,8 @@ $(document).ready(function(){
                 }
             })
             .done(response => {
-                $('.loadingModal').modal('hide');
+                $('.loadingModal').hide();
+
                 console.log(response);
                 if(response=="success")
                 {

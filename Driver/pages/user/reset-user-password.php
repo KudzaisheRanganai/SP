@@ -112,7 +112,7 @@
           </div>
           <div class="row mt-3">
             <div class="col-12 text-center">
-              <a href="login.php" class="text-dark"><small>Login</small></a>
+              <a href="../../index.php" class="text-dark"><small>Login</small></a>
             </div>
           </div>
         </div>
