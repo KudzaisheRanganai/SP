@@ -133,6 +133,7 @@
             <div class="modal-content px-auto" style="">
                 <img class="loading" src="assets/img/loading/loading.gif">
             </div>
+            <button type="button" hidden="true" class="btn btn-link  ml-auto closeModal" data-dismiss="modal" id="btnClose"></button>
         </div>
     </div>
   </div>

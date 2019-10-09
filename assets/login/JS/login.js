@@ -19,7 +19,8 @@ $(document).ready(function(){
                 }
             })
             .done(response => {
-                $('.loadingModal').modal('hide');
+                // $('.loadingModal').modal('hide');
+                $(".closeModal").click();
 
                 console.log(response);
                 if(response=="success")
