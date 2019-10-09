@@ -128,12 +128,12 @@
     </div>
   </footer>
   </div>
-    <div class="modal loadingModal fade bd-example-modal-lg justify-content-center" role="dialog" aria-hidden="true" tabindex="-1">
+    <div class="modal loadingModal fade bd-example-modal-lg justify-content-center" role="dialog" aria-hidden="true" tabindex="-1" id="loadingModal">
         <div class="modal-dialog modal-sm">
             <div class="modal-content px-auto" style="">
                 <img class="loading" src="assets/img/loading/loading.gif">
             </div>
-            <button type="button" hidden="true" class="btn btn-link  ml-auto closeModal" data-dismiss="modal" id="btnClose"></button>
+            <button type="button" hidden="true" class="btn  ml-auto closeModal" data-dismiss="modal" id="btnClose"></button>
         </div>
     </div>
   </div>

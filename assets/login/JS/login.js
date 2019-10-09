@@ -20,7 +20,10 @@ $(document).ready(function(){
             })
             .done(response => {
                 // $('.loadingModal').modal('hide');
-                $(".closeModal").click();
+                // $(".closeModal").click();
+                var x = document.getElementById("loadingModal");
+
+                x.close();
 
                 console.log(response);
                 if(response=="success")
