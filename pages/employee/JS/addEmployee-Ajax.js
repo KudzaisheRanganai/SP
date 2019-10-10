@@ -288,7 +288,7 @@ $(document).ready(function()
                         }
                     })
                     .done(data=>{
-                        $('.loadingModal').modal('hide');
+                        closeModal();
                         console.log(data);
                         let confirmation = data.trim();
                         if(confirmation.includes("success") && !confirmation.includes("Employee does not earn wage"))
@@ -446,4 +446,10 @@ function PreviewPic()
     pdffile=document.getElementById("fileUpload").files[0];
     pdffile_url=URL.createObjectURL(pdffile);
     $('#IDViewer').attr('src',pdffile_url);
+}
+
+function closeModal() {
+    $('.loadingModal').on('shown.bs.modal', function(e) {
+        $(".loadingModal").modal("hide");
+    });
 }

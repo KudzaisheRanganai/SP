@@ -135,7 +135,7 @@ $(()=>{
 		.done(data=>{
 			let doneData=data.split(",");
 			console.log(doneData);
-			$('.loadingModal').modal('hide');
+			closeModal();
 			if(doneData[0]=="T")
 			{
 				$('#MHeader').text("Success!");
@@ -158,3 +158,9 @@ $(()=>{
 		
 	});
 });
+
+function closeModal() {
+    $('.loadingModal').on('shown.bs.modal', function(e) {
+        $(".loadingModal").modal("hide");
+    });
+}

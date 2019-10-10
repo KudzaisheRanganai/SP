@@ -37,7 +37,7 @@ $(()=>{
             }
         })
         .done(data=>{
-            $('.loadingModal').modal('hide');
+            closeModal();
             console.log(data);
             let confirmation = data.trim();
             $("#displayModal").modal("hide");
@@ -130,7 +130,7 @@ $(()=>{
             }
         })
         .done(data=>{
-            $('.loadingModal').modal('hide');
+            closeModal();
             console.log(data);
             let confirmation = data.trim();
             if(confirmation.includes("success"))
@@ -190,7 +190,7 @@ $(()=>{
             }
         })
         .done(data=>{
-            $('.loadingModal').modal('hide');
+            closeModal();
             console.log(data);
             let confirmation = data.trim();
             if(confirmation.includes("success") && !confirmation.includes("Already CheckedOut!"))
@@ -248,7 +248,7 @@ $(()=>{
             }
         })
         .done(data=>{
-            $('.loadingModal').modal('hide');
+            closeModal();
             console.log(data);
             let confirmation = data.trim();
             if(confirmation.includes("success"))
@@ -296,5 +296,11 @@ function callTwo(EMPLOYEE_ID){
 
 
 });
+
+function closeModal() {
+    $('.loadingModal').on('shown.bs.modal', function(e) {
+        $(".loadingModal").modal("hide");
+    });
+}
 
 

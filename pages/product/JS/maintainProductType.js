@@ -35,10 +35,11 @@ $("button#maintainProductType").on('click', event => {
 				prevProductTypeDescription_ : prevProductTypeDescription
 			},
 			beforeSend: function() {
-	
+				$('.loadingModal').modal('show');
 	    	}
 		})
 		.done(response => {
+			closeModal();
 			console.log(response);
 			if (response == "success")
 			{
@@ -81,4 +82,10 @@ $("button#maintainProductType").on('click', event => {
 		});
 	}	
 });
+
+function closeModal() {
+    $('.loadingModal').on('shown.bs.modal', function(e) {
+        $(".loadingModal").modal("hide");
+    });
+}
 

@@ -26,11 +26,12 @@ $(()=>{
 					productTypeName_ : productTypeName,
 					productTypeDescription_ : productTypeDescription
 				},
-				beforeSend: function() {
-		
-		    	}
+				beforeSend:function(){
+					$('.loadingModal').modal('show');
+				}
 			})
 			.done(response => {
+				closeModal();
 				console.log(response);
 				if (response == "success")
 				{
@@ -66,6 +67,12 @@ $(()=>{
 	});
 
 });
+
+function closeModal() {
+    $('.loadingModal').on('shown.bs.modal', function(e) {
+        $(".loadingModal").modal("hide");
+    });
+}
 
 
 

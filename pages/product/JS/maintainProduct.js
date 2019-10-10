@@ -16,9 +16,13 @@ $(()=>{
     $.ajax({
 		url: 'PHPcode/getProductTypes_.php',
 		type: 'POST',
-		data: '' 
+		data: '',
+		beforeSend:function(){
+			$('.loadingModal').modal('show');
+		}
 	})
 	.done(data=>{
+		closeModal();
 		if(data!= false)
 		{
 			let arr = JSON.parse(data);
@@ -153,4 +157,10 @@ $("button#maintainProduct").on('click', event => {
 		});
 	}	
 });
+
+function closeModal() {
+    $('.loadingModal').on('shown.bs.modal', function(e) {
+        $(".loadingModal").modal("hide");
+    });
+}
 

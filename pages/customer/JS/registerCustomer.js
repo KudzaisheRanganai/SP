@@ -485,7 +485,7 @@ $(()=>{
 			            $('.loadingModal').modal('show');
 			     },
 			     complete: function(){
-			           // $('.loadingModal').modal('hide');
+			           // closeModal();
 			     }
 			     }
 			     )
@@ -503,7 +503,7 @@ $(()=>{
 							})
 							.done(data=>{
 								//alert(data);
-								$('.loadingModal').modal('hide');
+								closeModal();
 								
 								if(data=="success")
 								{
@@ -532,7 +532,7 @@ $(()=>{
 					}
 					else
 					{
-						$('.loadingModal').modal('hide');
+						closeModal();
 						//alert(doneData[1]);
 						$('#modal-title-default2').text("Error!");
 						$('#modalText').text("Database error");
@@ -589,7 +589,7 @@ $(()=>{
 								})
 								.done(data=>{
 									//alert(data);
-									 $('.loadingModal').modal('hide');
+									 closeModal();
 									
 									if(data=="success")
 									{
@@ -623,7 +623,7 @@ $(()=>{
 					}
 					else
 					{
-						$('.loadingModal').modal('hide');
+						closeModal();
 						//alert(doneData[1]);
 						$('#modal-title-default2').text("Error!");
 						$('#modalText').text("Database error");
@@ -642,27 +642,8 @@ $(()=>{
 });
 
 
-	
-// if( email != "" ){
-           
-//             $.ajax({
-//                 url:'register_.php',
-//                 type:'post',
-//                 data:{name:name,email:email,vat:vat,number:number,address1:address1,adrress2:adrress2,suburb:suburb,city:city,zip:zip},
-//                 success:function(response){
-//                     if(response=="success"){
-//                        alert("success"); 
-//                     }
-//                     else{
-//                         alert("failed");
-//                          //$("<tr></tr>").append($("<td></td>").html(`Assignment ${element['number']}`),($("<td></td>").html(element["mark"])));
-//                         //$('#alert-login').append("<div class='alert alert-danger' role='alert'><span class='alert-inner--text'><strong> Failed!</strong> </span></div>"); 
-                        
-//                     }
-                       
-              
-//                 }
-             
-
-//             });
-//         }
+function closeModal() {
+    $('.loadingModal').on('shown.bs.modal', function(e) {
+        $(".loadingModal").modal("hide");
+    });
+}

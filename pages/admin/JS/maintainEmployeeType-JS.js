@@ -88,10 +88,13 @@ console.log("Early");
                 $.ajax({
                     url:"PHPcode/maintainEmployeeType-SQL.php",
                     type:'POST',
-                    data:{choice:1 , accessLevel:accessLevelID , position:postionName , wage_earner:wageEarningID , employee_type_id:employeeTypeID}
+                    data:{choice:1 , accessLevel:accessLevelID , position:postionName , wage_earner:wageEarningID , employee_type_id:employeeTypeID},
+                    beforeSend:function(){
+                        $('.loadingModal').modal('show');
+                    }
                 })
                 .done(data=>{
-
+                    closeModal();
                     console.log(data);
                     let confirmation = data.trim();
                     if(confirmation== "success")
@@ -126,3 +129,9 @@ console.log("Early");
             });
 
 });
+
+function closeModal() {
+    $('.loadingModal').on('shown.bs.modal', function(e) {
+        $(".loadingModal").modal("hide");
+    });
+}
