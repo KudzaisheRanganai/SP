@@ -13,6 +13,7 @@
         $newLogoutTime = $_POST["minutes"];
 
         $maxTimeQ = "UPDATE LOGOUT_INACTIVITY SET MAX_TIME = '$newLogoutTime' WHERE TIME_ID = 1";
+        //echo $maxTimeQ;
         $maxTimeQResult = mysqli_query($DBConnect, $maxTimeQ);
 
         if ($maxTimeQResult == true) 
