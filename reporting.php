@@ -74,7 +74,7 @@
                   if (in_array("12.2", $subFunctionality)) {
                 ?>
                 <div class="col-lg-4 col-md-6">
-                  <button type="button" class="btn-icon-clipboard"  data-toggle="modal" data-target="#generateStock">
+                  <button type="button" class="btn-icon-clipboard" data-target="#generateStock">
                     <a>
                       <div>
                         <i class="far fa-clipboard"></i>
@@ -91,7 +91,7 @@
                   if (in_array("12.3", $subFunctionality)) {
                 ?>
                 <div class="col-lg-4 col-md-6">
-                  <button type="button" class="btn-icon-clipboard"  data-toggle="modal" data-target="#generate">
+                  <button type="button" class="btn-icon-clipboard" data-target="#generate">
                     <a>
                       <div>
                         <i class="fas fa-user-clock"></i>
@@ -108,7 +108,7 @@
                   if (in_array("12.4", $subFunctionality)) {
                 ?>
                 <div class="col-lg-4 col-md-6">
-                  <button type="button" class="btn-icon-clipboard"  data-toggle="modal" data-target="#generateDateProduct">
+                  <button type="button" class="btn-icon-clipboard" data-target="#generateDateProduct">
                     <a>
                       <div>
                         <i class="fas fa-chart-line"></i>
@@ -125,7 +125,7 @@
                   if (in_array("12.5", $subFunctionality)) {
                 ?>
                 <div class="col-lg-4 col-md-6">
-                  <button type="button" class="btn-icon-clipboard"  data-toggle="modal" data-target="#generateDebtors">
+                  <button type="button" class="btn-icon-clipboard" data-target="#generateDebtors">
                   <a>
                     <div>
                       <i class="fas fa-chart-line"></i>
@@ -142,7 +142,7 @@
                   if (in_array("12.6", $subFunctionality)) {
                 ?>
                 <div class="col-lg-4 col-md-6">
-                  <button type="button" class="btn-icon-clipboard"  data-toggle="modal" data-target="#generateCreditors">
+                  <button type="button" class="btn-icon-clipboard" data-target="#generateCreditors">
                     <a>
                       <div>
                         <i class="fas fa-briefcase"></i>
@@ -159,7 +159,7 @@
                   if (in_array("12.7", $subFunctionality)) {
                 ?>
                 <div class="col-lg-4 col-md-6">
-                  <button type="button" class="btn-icon-clipboard"  data-toggle="modal" data-target="#generateAttendance">
+                  <button type="button" class="btn-icon-clipboard" data-target="#generateAttendance">
                     <a>
                       <div>
                         <i class="fas fa-users"></i>
