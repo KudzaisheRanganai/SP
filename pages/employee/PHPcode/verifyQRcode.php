@@ -132,6 +132,7 @@ else
 
                         while($correctHash = mysqli_fetch_assoc($query_QR))
                         {
+                            echo "IN HERE";
                             if($correctHash["HASH"] == $verifyID && $addedTime == "Time SQL works" )
                             {
 
@@ -147,6 +148,7 @@ else
                                 break;
                             }
                         }
+                        echo "EXITING";
                     }
                     else
                     {
