@@ -61,6 +61,8 @@ else
                         $realCheckin = $row["ARRIVAL_TIME"];
                         $realCheckout = $row["DEPATURE_TIME"];
 
+                        echo $realCheckin." - ".$realCheckout;
+
            
                         $sql = "SELECT HASH FROM EMPLOYEE_QR WHERE (EMPLOYEE_ID='$employeeID')";
                         $query_QR = mysqli_query($DBConnect , $sql);
