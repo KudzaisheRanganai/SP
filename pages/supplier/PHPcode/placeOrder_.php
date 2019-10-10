@@ -158,7 +158,7 @@
 		{
 			$dateFiveFromNow = date('Y-m-d', mktime(0, 0, 0, date('m'), date('d') + 3, date('Y')));
 
-			$querySaleDelivery = "INSERT INTO COLLECTION(SALE_ID, EXPECTED_DATE, ADDRESS_ID, LONGITUDE, LATITUDE, DCT_STATUS_ID) VALUES( '$lastID', '$dateFiveFromNow', '$orderCollectionAddressID', $collectionLongitude,$collectionLatitude, 1)";
+			$querySaleDelivery = "INSERT INTO COLLECTION(ORDER_ID, EXPECTED_DATE, ADDRESS_ID, LONGITUDE, LATITUDE, COLLECTION_STATUS_ID) VALUES( '$lastID', '$dateFiveFromNow', '$orderCollectionAddressID', $collectionLongitude,$collectionLatitude, 1)";
 			mysqli_query($DBConnect, $querySaleDelivery);
 
 			//echo($querySaleDelivery);
