@@ -72,7 +72,7 @@ $(document).ready(function()
                         }
                     })
                     .done(data=>{
-                        $('.loadingModal').modal('hide');
+                        closeModal();
                         console.log(data);
                         let confirmation = data.trim();
                         if(confirmation== "success")
@@ -108,3 +108,8 @@ $(document).ready(function()
 
 
 });
+function closeModal() {
+    $('.loadingModal').on('shown.bs.modal', function(e) {
+        $(".loadingModal").modal("hide");
+    });
+}

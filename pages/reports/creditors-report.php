@@ -52,6 +52,7 @@
         <tfoot>   
           <tr id="TotalAmountOwed">
             <td colspan="2"></td>
+            <td colspan="2"></td>
             <td colspan="2"><b>TOTAL AMOUNT OWED</b></td> 
           </tr>
 

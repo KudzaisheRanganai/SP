@@ -108,7 +108,11 @@ $("#finaliseReturn").on('click',function(e){
 		$("#modal-returnOrder").modal("show");
 	}
 });
-
+function closeModal() {
+    $('.loadingModal').on('shown.bs.modal', function(e) {
+        $(".loadingModal").modal("hide");
+    });
+}
 $("button#confirmSalesManagerPassword").on('click', event => {
 
 	var password = $("#salesManagerPassword").val().trim();
@@ -168,13 +172,10 @@ $("button#confirmSalesManagerPassword").on('click', event => {
 		        beforeSend: function(){
 		            //$('.loadingModal').modal('show');
 		            //console.log("Longitude => "+saleDeliveryLongitude+", Latitude => "+saleDeliveryLatitude);
-		        },
-		        complete: function(){
-		            $('.loadingModal').modal('hide');
 		        }
 		    })
 		    .done(response => {
-
+		    	closeModal();
 		    	console.log(response);
 
 		        if (response == "success")

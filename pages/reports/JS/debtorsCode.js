@@ -17,12 +17,23 @@ $(()=>{
 	
 			for(let k=0;k<arr.length;k++)
 			{	
+				let amountOwed = parseFloat(arr[k]["BALANCE"]);
+                amountOwed = amountOwed.toFixed(2);
+                amountOwed = numberWithSpaces(amountOwed);
+                amountOwed = "R"+ amountOwed;
+
 				total=total+parseFloat(arr[k]["BALANCE"]);
-				tableEntries+="<tr><td class='no' colspan='2'>"+arr[k]["CUSTOMER_ID"]+"</td><td class='desc'>"+arr[k]["ACCOUNT_NO"]+"</td><td class='unit'>"+arr[k]["NAME"]+" "+arr[k]["SURNAME"]+"</td><td class='total'>"+arr[k]["BALANCE"]+"</td></tr>";
+				tableEntries+="<tr><td class='no' colspan='2'>"+arr[k]["CUSTOMER_ID"]+"</td><td class='desc'>"+arr[k]["ACCOUNT_NO"]+"</td><td class='unit'>"+arr[k]["NAME"]+" "+arr[k]["SURNAME"]+"</td><td class='total'>"+amountOwed+"</td></tr>";
 				
 			}
 			$("#tbody").append(tableEntries);
-			$('#total').append('<td>'+total.toFixed(2)+'</td>');
+
+			let totalOwed = parseFloat(total);
+            totalOwed = totalOwed.toFixed(2);
+            totalOwed = numberWithSpaces(totalOwed);
+            totalOwed = "R"+ totalOwed;
+
+			$('#total').append('<td>'+totalOwed+'</td>');
 			
 		}
 		else
@@ -31,3 +42,13 @@ $(()=>{
 		}
 	});
 });
+
+function setTwoNumberDecimal(el) 
+{
+    el.value = parseFloat(el.value).toFixed(2);     
+};
+
+function numberWithSpaces(x) 
+{
+    return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ");
+}

@@ -627,7 +627,11 @@ let buildTruckProducts=function(dtid,productname,qty)
   return TruckProductEntry;
 }
 
-
+function closeModal() {
+    $('.loadingModal').on('shown.bs.modal', function(e) {
+        $(".loadingModal").modal("hide");
+    });
+}
 let buildProducts=function(tmp,arr)
 {
   let tableEntry=$("<tr></tr>");
@@ -1025,7 +1029,7 @@ $(()=>{
             data:{choice:2,DELIVERY_ID:delID["DELIVERY_ID"],num:assignProductIDs.length,SALE_ID:deliverySelectID,PRODUCT_ID:assignProductIDs,QTY:assignProductQtys,TRUCK_ID:truckSelectID}
             })
             .done(data=>{
-              $('.loadingModal').modal('hide');
+              closeModal();
               let doneData=data.split(",");
               console.log(doneData);
               if(doneData[0]=="T")

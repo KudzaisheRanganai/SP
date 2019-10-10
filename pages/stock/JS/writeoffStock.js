@@ -14,6 +14,11 @@ let preLoadDestinationWarehouse = function(num)
 	wOption.text(warehouseProduct[num]["NAME"]);
 	dW.append(wOption);
 }
+function closeModal() {
+    $('.loadingModal').on('shown.bs.modal', function(e) {
+        $(".loadingModal").modal("hide");
+    });
+}
 $(()=>{
 	productID=$("#pID").text();
 	let sizeID=parseInt($("#sizeID").text());
@@ -94,7 +99,7 @@ $(()=>{
 				}
 			})
 			.done(data=>{
-				$('.loadingModal').modal('hide');
+				closeModal();
 				let doneData=data.split(",");
 				console.log(doneData);
 				if(doneData[0]=="T")

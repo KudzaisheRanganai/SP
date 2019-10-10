@@ -31,6 +31,11 @@ let checkDate=function()
    	return true;
    }
 }
+function closeModal() {
+    $('.loadingModal').on('shown.bs.modal', function(e) {
+        $(".loadingModal").modal("hide");
+    });
+}
 $(()=>{
 	let customerData=JSON.parse($("#cData").text());
 	let saleID=$("#sID").text();
@@ -83,7 +88,7 @@ $(()=>{
 						}
 						})
 						.done(data=>{
-							$('.loadingModal').modal('hide');
+							closeModal();
 							let doneData=data.split(",");
 							console.log(doneData);
 							if(doneData[0]=="T")

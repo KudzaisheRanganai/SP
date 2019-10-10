@@ -237,20 +237,26 @@ $(()=>{
             var fdata = new FormData(this);
             var fileErrors = 0;
             var filSizeErrors= 0;
-            for (var file of fdata.values()) 
-            {
-                if (myfile= file["name"] != undefined) 
+            
+            if($(".custom-file-input").val() != "") {
+
+                for (var file of fdata.values()) 
                 {
-                    myfile= file["name"];
-                    var ext = myfile.split('.').pop();
-                    if((ext!="jpg") && (ext!="jpeg"))
+                    if (myfile= file["name"] != undefined) 
                     {
-                       //console.log("NOT PDF");
-                       fileErrors++;
-                    }    
+                        myfile= file["name"];
+                        var ext = myfile.split('.').pop();
+                        if((ext!="jpg") && (ext!="jpeg"))
+                        {
+                           //console.log("NOT PDF");
+                           fileErrors++;
+                        }    
+                    }
+                   
                 }
-               
             }
+
+
             if((fileErrors==0) && (size < 20971520))
             {
                 let form=new FormData();

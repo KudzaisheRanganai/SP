@@ -1,7 +1,11 @@
 var productsArr;
 var orderProductsArray;
 var orderTotal = 0.00;
-
+function closeModal() {
+    $('.loadingModal').on('shown.bs.modal', function(e) {
+        $(".loadingModal").modal("hide");
+    });
+}
 $(()=>{
 	let collectionCheck=$("#collectionCheck").text();
 	console.log(ORDER_ID);
@@ -138,7 +142,7 @@ $(()=>{
 			}
 		})
 		.done(data=>{
-			$('.loadingModal').modal('hide');
+			closeModal();
 			let doneData=data.split(",");
 			console.log(doneData);
 			if(doneData[0]=="T")
@@ -257,7 +261,7 @@ $("#confirmDeleteCustomer").on('click',function(e){
 	})
 	.done(data=>{
 		console.log(data);
-		$('.loadingModal').modal('hide');
+		closeModal();
 		
 		if(data=="success")
 		{

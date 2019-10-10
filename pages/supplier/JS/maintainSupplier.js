@@ -34,6 +34,11 @@ let getInput= function()
 	addSupplierArr["zip"]=zipArr;
 	return addSupplierArr;
 }
+function closeModal() {
+    $('.loadingModal').on('shown.bs.modal', function(e) {
+        $(".loadingModal").modal("hide");
+    });
+}
 ///////////////////////////////////////////////////
 let createAddress= function(tmp){
 		let formgroup = $('<div></div>').addClass('form-group col').attr('id', 'address'+tmp);;
@@ -356,7 +361,7 @@ $(()=>{
 			})
 			.done(data=>{
 
-				$('.loadingModal').modal('hide');
+				closeModal();
 				let doneData=data.split(",");
 				console.log(doneData);
 				if(doneData[0]=="T")
