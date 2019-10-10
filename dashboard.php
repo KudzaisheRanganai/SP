@@ -37,14 +37,14 @@
       </div>
     </nav>
 
-    <?php 
-      if (in_array("0", $subFunctionality)) {
-    ?>
     <!-- Header -->
     <div class="header bg-gradient-custom pb-8 pt-5 pt-md-8">
       <div class="container-fluid">
         <div class="header-body">
           <!-- Card stats -->
+          <?php 
+            if (in_array("0", $subFunctionality)) {
+          ?>
           <div class="row">
             <div class="col-xl-3 col-lg-6">
               <div class="card card-stats mb-4 mb-xl-0">
@@ -131,12 +131,18 @@
               </div>
             </div>
           </div>
+          <?php
+            }
+          ?>
         </div>
       </div>
     </div>
     
     <!-- Page content -->
     <div class="container-fluid mt--7">
+      <?php 
+        if (in_array("0", $subFunctionality)) {
+      ?>
       <div class="row">
         <div class="col-xl-8 mb-5 mb-xl-0">
           <div class="card bg-gradient-default shadow">
@@ -177,9 +183,6 @@
           </div>
         </div>
       </div>
-      <?php
-        }
-      ?>
 
       <?php 
 
@@ -201,6 +204,17 @@
         </div>
       </div>';
   
+      ?>
+
+      <?php
+        }
+      ?>
+
+
+
+
+      <?php
+        }
       ?>
       <form id="delView" method="POST" action="pages/delivery_collection/assign-truck-view-delivery.php">
         <input type="hidden" name="SALE_ID" id="delID">
