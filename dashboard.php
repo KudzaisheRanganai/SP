@@ -210,12 +210,6 @@
         }
       ?>
 
-
-
-
-      <?php
-        }
-      ?>
       <form id="delView" method="POST" action="pages/delivery_collection/assign-truck-view-delivery.php">
         <input type="hidden" name="SALE_ID" id="delID">
         <input type="hidden" name="DEL_INFO" id="delInfo">
