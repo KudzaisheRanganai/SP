@@ -98,6 +98,8 @@ else
                                 
                                 
                                 $query = "INSERT INTO `EMPLOYEE_HOUR`(`DATE`, `CHECK_IN_TIME`, `CHECK_OUT_TIME`, `EMPLOYEE_ID`) VALUES ('$day','$currentTime','NULL','$employeeID')";
+
+                                echo $query;
                             
                                 $submitQuery = mysqli_query($DBConnect,$query);
                                 
