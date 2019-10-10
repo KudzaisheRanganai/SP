@@ -5,7 +5,7 @@
   $employeeData=getAllEmployees($con);
   $saleProductData=getSaleProductDetails($con,$_POST["SALE_ID"]);
   $productData=getProductDetails($con);
-  
+  $help="../../help/SearchSaleDelivery.html";
   mysqli_close($con);
 ?>
 <!DOCTYPE html>

@@ -206,7 +206,7 @@
             }
           ?>
           <li class="nav-item">
-            <a class="nav-link" target="_blank" href="../help/Introduction.html" >
+            <a class="nav-link" target="_blank" href="../../help/Introduction.html" >
               <i class="fas fa-question-circle text-success"></i> Help
             </a>
           </li>

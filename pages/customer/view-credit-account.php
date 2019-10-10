@@ -202,7 +202,28 @@
                                       </div>
                                     </div>
                                   </td>
-                                </tr>                  
+                                </tr>
+                                <tr>
+                                  <th>
+                                  </th>
+                                  <td class="text-right pt-0 pb-3 pr-3">
+                                    <a href="#" id="viewBS" class="btn btn-icon btn-2 btn-primary btn-sm mt-0 py-2" target="_blank">View Bank Statement</a>
+                                  </td>
+                                </tr>
+                                <tr>
+                                  <th>
+                                  </th>
+                                  <td class="text-right pt-0 pb-3 pr-3">
+                                    <a href="#" id="viewID" class="btn btn-icon btn-2 btn-primary btn-sm mt-0 py-2" target="_blank">View ID Copy</a>
+                                  </td>
+                                </tr>
+                                <tr>
+                                  <th>
+                                  </th>
+                                  <td class="text-right pt-0 pb-3 pr-3">
+                                    <a href="#" id="viewRes" class="btn btn-icon btn-2 btn-primary btn-sm mt-0 py-2" target="_blank">View Proof Of Residence</a>
+                                  </td>
+                                </tr>                
                             </tbody>
                           </table>
                       </div>
