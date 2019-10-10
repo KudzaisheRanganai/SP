@@ -116,7 +116,7 @@ $(()=>{
 
 
 			$.ajax({
-				url: '../../mailjet/mail_placeOrder.php',
+				url: '../../mailjet/mail_placeorder.php',
 				type: 'POST',
 				data:{
 					name: SUPPLIER_NAME,
@@ -132,8 +132,6 @@ $(()=>{
 			})
 			.done(data=>{
 				console.log(data);
-				$('.loadingModal').modal('hide');
-				
 				if(data=="success")
 				{
 					$('#modal-title-default2').text("Success!");
@@ -166,14 +164,14 @@ $(()=>{
 			    height: divHeight,
 			    width: divWidth,
 			    onrendered: function(canvas) {
-					var image = canvas.toDataURL("image/png",0.1);
+					var image = canvas.toDataURL("image/png",1.0);
 					var pdf = new jsPDF('p','pt','a4'); // using defaults: orientation=portrait, unit=mm, size=A4
 					var width = pdf.internal.pageSize.getWidth();    
 					var height = pdf.internal.pageSize.getHeight();
 
 					height = ratio * width;
 					pdf.addImage(image, 'PNG', -150, 20, width+300, height-70);
-					pdf.save('order#/'+orderNumber+'.pdf'); //Download the rendered PDF.
+					pdf.save('order#/'+ORDER_ID+'.pdf'); //Download the rendered PDF.
 
 					var doc = btoa(pdf.output());
 					var data = new FormData();

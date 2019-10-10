@@ -123,7 +123,7 @@ $(()=>{
                     
                     }
                 
-                let totalSales = parseFloat(total);
+                totalSales = parseFloat(total);
                 totalSales = totalSales.toFixed(2);
                 totalSales = numberWithSpaces(totalSales);
                 totalSales = "R"+ totalSales;
