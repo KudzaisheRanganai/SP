@@ -1,3 +1,7 @@
+<?php
+  include_once("connection.php");
+  mysqli_close($con);
+?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -34,7 +38,7 @@
           <div class="date"></div>
         </div>
       </div>
-      <table border="0" cellspacing="0" cellpadding="0">
+      <table border="0" cellspacing="0" cellpadding="0" id="tbody">
         <thead>
           <tr>
             <th class="desc-center" >CUSTOMER ID</th>
@@ -47,12 +51,11 @@
   
           
         </tbody>
-      </table>
-      <table id="tbody">
         <tfoot>   
           <tr id="total">
-            <td colspan="2"></td>
-            <td colspan="2"><b>TOTAL AMOUNT OUTSTANDING</b></td>
+            <td></td>
+            <td></td>
+            <td><b>TOTAL AMOUNT OUTSTANDING</b></td>
             
           </tr>
         </tfoot>

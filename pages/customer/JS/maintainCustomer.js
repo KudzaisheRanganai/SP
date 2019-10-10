@@ -376,7 +376,7 @@ $(()=>{
 			     } 
 			})
 			.done(data=>{
-				$('.loadingModal').modal('hide');
+				closeModal();
 				console.log(data);
 				let doneData=data.split(",");
 				console.log(doneData);
@@ -406,3 +406,9 @@ $(()=>{
 		
 	});
 });
+
+function closeModal() {
+    $('.loadingModal').on('shown.bs.modal', function(e) {
+        $(".loadingModal").modal("hide");
+    });
+}

@@ -18,7 +18,7 @@ $(document).ready(function(){
                 }
             })
             .done(response => {
-                $('.loadingModal').modal('hide');
+                closeModal();
                 console.log(response);
                 if(response=="success")
                 {
@@ -57,3 +57,9 @@ $(document).ready(function(){
 
     });
 });
+
+function closeModal() {
+    $('.loadingModal').on('shown.bs.modal', function(e) {
+        $(".loadingModal").modal("hide");
+    });
+}

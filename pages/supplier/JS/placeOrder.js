@@ -601,9 +601,10 @@ function callTwo(){
 	//window.open(URL, '_blank');
 	console.log(ORDERPRODUCTS);
 	var form="<form target='_blank' action='invoice/invoice.php' id='sendSaleInfo' method='POST'><input type='hidden' name='SUPPLIER_NAME' value='"+INVOICE_SUPPLIER_NAME+"'>"+"<input type='hidden' name='ADDRESS' value='"+INVOICE_CUSTOMER_ADDRESS+"'>"+"<input type='hidden' name='ORDER_ID' value='"+INVOICE_ORDER_ID+"'>"+"<input type='hidden' name='ORDERED_BY' value='"+ORDERUSERNAME+"'>"+"<input type='hidden' name='EMAIL' value='"+INVOICE_SUPPLIER_EMAIL+"'>"+"<input type='hidden' name='ORDER_PRODUCTS' value='"+JSON.stringify(ORDERPRODUCTS)+"'>"+"</form>";
-
 	$("body").append(form);
+
 	$( "#sendSaleInfo" ).submit();
+	
 	location.reload();
 }
 

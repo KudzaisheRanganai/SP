@@ -72,7 +72,7 @@ $(()=>{
 				data: {customerID:CUSTOMER_ID}
 			})
 			.done(data=>{
-				$('.loadingModal').modal('hide');
+				closeModal();
 				let transactions=JSON.parse(data);
 				console.log(transactions);
 				for(let k=0;k<transactions.length;k++)
@@ -110,7 +110,7 @@ $(()=>{
 			}
 		})
 		.done(data=>{
-			$('.loadingModal').modal('hide');
+			closeModal();
 			console.log(data);
 			console.log(change);
 			if(data=="T")
@@ -160,7 +160,7 @@ $(()=>{
             processData: false,
             success: function(data){
                 console.log(data);
-                $('.loadingModal').modal('hide');
+                closeModal();
                 if(data=="success"){
                 	console.log("success");
             		$('#modal-title-default2').text("Success!");
@@ -186,3 +186,9 @@ $(()=>{
         });
     }));
 });
+
+function closeModal() {
+    $('.loadingModal').on('shown.bs.modal', function(e) {
+        $(".loadingModal").modal("hide");
+    });
+}

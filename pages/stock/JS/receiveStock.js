@@ -22,11 +22,7 @@ let buildProduct=function(tmp,arr)
 	tableEntry.append(quantityEntry);
 	$("#tBody").append(tableEntry);
 }
-function closeModal() {
-    $('.loadingModal').on('shown.bs.modal', function(e) {
-        $(".loadingModal").modal("hide");
-    });
-}
+
 $(()=>{
 	orderDetails=JSON.parse($("#oDet").text());
 	orderProducts=JSON.parse($("#oProd").text());
@@ -130,3 +126,9 @@ $(()=>{
 		}
 	});
 });
+
+function closeModal() {
+    $('.loadingModal').on('shown.bs.modal', function(e) {
+        $(".loadingModal").modal("hide");
+    });
+}
