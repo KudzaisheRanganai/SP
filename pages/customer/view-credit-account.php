@@ -202,6 +202,13 @@
                                       </div>
                                     </div>
                                   </td>
+                                </tr>
+                                <tr>
+                                  <th>
+                                  </th>
+                                  <td>
+                                    <a href="#" id="viewBS" class="btn btn-icon btn-2 btn-primary btn-sm mt-0 py-2" target="_blank">View Bank Statement</a>
+                                  </td>
                                 </tr>                  
                             </tbody>
                           </table>
