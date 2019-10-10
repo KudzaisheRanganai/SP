@@ -120,7 +120,8 @@
                               </th>
                               <td >
                                 <?php 
-                                $date=new DateTime($orderDetails->ORDER_DATE);
+                                $source = $orderDetails->ORDER_DATE;
+                                $date=new DateTime($source);
                                 echo $date->format("Y/m/d h:i a");
                                 ?>
                               </td>
