@@ -226,7 +226,7 @@
 
             </div>
             <div class="modal-footer">  
-              <a href="pages/reports/debtors.php" class="btn btn-success" target="_blank">Yes</a>  
+              <a href="pages/reports/debtors.php" class="btn btn-success" target="_blank" data-dismiss="modal">Yes</a>  
               <button type="button" class="btn btn-danger" data-dismiss="modal">No</button>
             </div>
           </div>
@@ -245,7 +245,7 @@
 
             </div>
             <div class="modal-footer">  
-              <a href="pages/reports/stock-report.php" class="btn btn-success" target="_blank">Yes</a>  
+              <a href="pages/reports/stock-report.php" class="btn btn-success" target="_blank" data-dismiss="modal">Yes</a>  
               <button type="button" class="btn btn-danger" data-dismiss="modal">No</button>
             </div>
           </div>
@@ -286,7 +286,7 @@
                       <input type="hidden" class="form-control" id="USERNAME" name="USERNAME" value=<?php echo $_SESSION["name"]?> placeholder="Enter Date of Sale From">
                     </div>
                   </div>
-                  <input type="submit" class="btn btn-success" value="Yes"></input>
+                  <input type="submit" class="btn btn-success" value="Yes" data-dismiss="modal"></input>
                   <button type="button" class="btn btn-danger" data-dismiss="modal">No</button>
               </form>
 
@@ -331,7 +331,7 @@
 
             </div>
             <div class="modal-footer">  
-              <a href="pages/reports/creditors-report.php" class="btn btn-success" target="_blank">Yes</a> 
+              <a href="pages/reports/creditors-report.php" class="btn btn-success" target="_blank" data-dismiss="modal">Yes</a> 
               <button type="button" class="btn btn-danger" data-dismiss="modal">No</button>
             </div>
           </div>
@@ -493,6 +493,7 @@
       <?php include_once("footer.php");?>
     </div>
   </div>
+
 
 
   <div class="modal loadingModal fade bd-example-modal-lg justify-content-center" data-backdrop="static" data-keyboard="false" tabindex="-1">

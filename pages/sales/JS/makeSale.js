@@ -498,7 +498,7 @@ $("button#confirmSalesManagerPassword").on('click', event => {
 			        	deliveryLatitude_: saleDeliveryLatitude
 			        },
 			        beforeSend: function(){
-			            $('.loadingModal').modal('show');
+			            //$('.loadingModal').modal('show');
 			            //console.log("Longitude => "+saleDeliveryLongitude+", Latitude => "+saleDeliveryLatitude);
 
 			        }
@@ -506,6 +506,7 @@ $("button#confirmSalesManagerPassword").on('click', event => {
 			    })
 			    .done(response => {
 			    	closeModal();
+
 			    	console.log(response);
 			    	var reponseArray = response.split(',');
 			    	INVOICE_SALE_ID = reponseArray[1];

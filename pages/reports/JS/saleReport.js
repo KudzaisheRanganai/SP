@@ -73,14 +73,21 @@ $(()=>{
                              //console.log(totalSales);
                              formattedTime = daysOfTheWeek;
                              staticTotalSales =  parseFloat(arr[k]["SALE_AMOUNT"]);
+
+                            let staticTotalSalesFormatted = parseFloat(arr[k]["SALE_AMOUNT"]);
+                            staticTotalSalesFormatted = totalSales.toFixed(2);
+                            staticTotalSalesFormatted = numberWithSpaces(staticTotalSalesFormatted);
+                            staticTotalSalesFormatted = "R"+ staticTotalSalesFormatted;
+
                              saleTotalArray.push(parseFloat(arr[k]["SALE_AMOUNT"]).toFixed(2));
+
                              if(salePeriod=="Weekly"  || salePeriod == "Daily")
                              {
                                  formattedTime = moment(daysOfTheWeek).format('Do MMMM YYYY');
                              }
                              saleGraphDays.push(formattedTime);
                              
-                                 tableEntries+="<tr><td class='no'>"+formattedTime+"</td><td class='desc' id='TotalSales'>"+totalSales +"</td><td class='unit-right' id='SaleTotal'>"+staticTotalSales.toFixed(2)+"</td></tr>";
+                                 tableEntries+="<tr><td class='no'>"+formattedTime+"</td><td class='desc' id='TotalSales'>"+totalSales +"</td><td class='unit-right' id='SaleTotal'>"+staticTotalSalesFormatted+"</td></tr>";
                                  
                         }
                         else if(salePeriod=="Monthly")
@@ -94,13 +101,19 @@ $(()=>{
                              //console.log(totalSales);
                              formattedTime = daysOfTheWeek;
                              staticTotalSales =  parseFloat(arr[k]["SALE_AMOUNT"]);
+
+                            let staticTotalSalesFormatted = parseFloat(arr[k]["SALE_AMOUNT"]);
+                            staticTotalSalesFormatted = totalSales.toFixed(2);
+                            staticTotalSalesFormatted = numberWithSpaces(staticTotalSalesFormatted);
+                            staticTotalSalesFormatted = "R"+ staticTotalSalesFormatted;
+
                              saleTotalArray.push(parseFloat(arr[k]["SALE_AMOUNT"]).toFixed(2));
                             
                                  formattedTime = moment(daysOfTheWeek).format('Do MMMM YYYY');
                              
                              saleGraphDays.push(formattedTime);
                              
-                                 tableEntries+="<tr><td class='no'>"+formattedTime+"</td><td class='desc' id='TotalSales'>"+totalSales +"</td><td class='unit-right' id='SaleTotal'>"+staticTotalSales.toFixed(2)+"</td></tr>";
+                                 tableEntries+="<tr><td class='no'>"+formattedTime+"</td><td class='desc' id='TotalSales'>"+totalSales +"</td><td class='unit-right' id='SaleTotal'>"+staticTotalSalesFormatted+"</td></tr>";
                                  
                         }
                         
@@ -110,11 +123,15 @@ $(()=>{
                     
                     }
                 
+                let totalSales = parseFloat(total);
+                totalSales = totalSales.toFixed(2);
+                totalSales = numberWithSpaces(totalSales);
+                totalSales = "R"+ totalSales;
 
             
                 
                $("#tBody").append(tableEntries);
-               $('#total').append('<td>'+total.toFixed(2)+'</td>');
+               $('#total').append('<td>'+totalSales+'</td>');
 
 
                //Display Graph
@@ -487,6 +504,16 @@ $(()=>{
             }
         });
     });
+
+    function setTwoNumberDecimal(el) 
+    {
+        el.value = parseFloat(el.value).toFixed(2);     
+    };
+
+    function numberWithSpaces(x) 
+    {
+        return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ");
+    }
     /* let redCount=0;
                 let greenCount=0;
                 let arrayOfProdNames = [];

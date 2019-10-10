@@ -173,7 +173,7 @@ $(()=>{
 
 					height = ratio * width;
 					pdf.addImage(image, 'PNG', -150, 20, width+300, height-70);
-					pdf.save('invoices/myPage.pdf'); //Download the rendered PDF.
+					pdf.save('order#/'+orderNumber+'.pdf'); //Download the rendered PDF.
 
 					var doc = btoa(pdf.output());
 					var data = new FormData();
