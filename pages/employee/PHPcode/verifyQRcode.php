@@ -97,7 +97,7 @@ else
                                 $timeCheckedIn = $setCheckinTime;
                                 
                                 
-                                $query = "INSERT INTO `EMPLOYEE_HOUR`(`DATE`, `CHECK_IN_TIME`, `CHECK_OUT_TIME`, `EMPLOYEE_ID`) VALUES ('$day','$currentTime','NULL','$employeeID')";
+                                $query = "INSERT INTO `EMPLOYEE_HOUR`(`DATE`, `CHECK_IN_TIME`, `EMPLOYEE_ID`) VALUES ('$day','$currentTime','$employeeID')";
 
                                 echo $query;
                             
@@ -113,7 +113,7 @@ else
                             {
                                 echo "currentTime >= $setCheckinTime && $currentTime <= $checkoutTime";
                                 $timeCheckedIn = $currentTime;
-                                $query = "INSERT INTO `EMPLOYEE_HOUR`(`DATE`, `CHECK_IN_TIME`, `CHECK_OUT_TIME`, `EMPLOYEE_ID`) VALUES ('$day','$currentTime','NULL','$employeeID')";
+                                $query = "INSERT INTO `EMPLOYEE_HOUR`(`DATE`, `CHECK_IN_TIME`, `EMPLOYEE_ID`) VALUES ('$day','$currentTime','$employeeID')";
                                 $submitQuery = mysqli_query($DBConnect,$query);
                                 if($submitQuery)
                                 {
