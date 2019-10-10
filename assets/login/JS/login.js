@@ -20,10 +20,8 @@ $(document).ready(function(){
             })
             .done(response => {
                 // $('.loadingModal').modal('hide');
-                // $(".closeModal").click();
-                var x = document.getElementById("loadingModal");
-
-                x.close();
+                $(".closeModal").click();
+                closeModal();
 
                 console.log(response);
                 if(response=="success")
@@ -66,3 +64,9 @@ $(document).ready(function(){
 
     });
 });
+
+function closeModal() {
+    $('.loadingModal').on('shown.bs.modal', function(e) {
+        $(".loadingModal").modal("hide");
+    });
+}
