@@ -23,7 +23,7 @@ $(()=>{
                 amountOwed = "R"+ amountOwed;
 
 				total=total+parseFloat(arr[k]["BALANCE"]);
-				tableEntries+="<tr><td class='no' colspan='3'>"+arr[k]["CUSTOMER_ID"]+"</td><td class='desc'>"+arr[k]["ACCOUNT_NO"]+"</td><td class='unit'>"+arr[k]["NAME"]+" "+arr[k]["SURNAME"]+"</td><td class='total'>"+amountOwed+"</td></tr>";
+				tableEntries+="<tr><td class='no'>"+arr[k]["CUSTOMER_ID"]+"</td><td class='desc'>"+arr[k]["ACCOUNT_NO"]+"</td><td class='unit'>"+arr[k]["NAME"]+" "+arr[k]["SURNAME"]+"</td><td class='total'>"+amountOwed+"</td></tr>";
 				
 			}
 			$("#tbody").append(tableEntries);
