@@ -232,13 +232,10 @@ $("button#confirmSalesManagerPassword").on('click', event => {
 		            //$('.loadingModal').modal('show');
 		            //console.log("Longitude => "+saleDeliveryLongitude+", Latitude => "+saleDeliveryLatitude);
 
-		        },
-		        complete: function(){
-		            $('.loadingModal').modal('hide');
 		        }
 		    })
 		    .done(response => {
-
+		    	closeModal();
 		    	console.log(response);
 
 		        if (response == "success")
@@ -336,4 +333,9 @@ $(document).on('change','.returnQuantityNumber',function(e){
 		//console.log($(this).val());
 		$(this).attr("style","border-color: #cad1d7; height: 2rem; color: #8898aa;")
 	}
-})
+});
+function closeModal() {
+    $('.loadingModal').on('shown.bs.modal', function(e) {
+        $(".loadingModal").modal("hide");
+    });
+}

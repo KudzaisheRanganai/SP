@@ -18,7 +18,11 @@ let preLoadSourceWarehouse= function(num)
 	groupDiv.append(labelDiv);
 	$("#sourceW").append(groupDiv);
 }
-
+function closeModal() {
+    $('.loadingModal').on('shown.bs.modal', function(e) {
+        $(".loadingModal").modal("hide");
+    });
+}
 let uncheckSource = function()
 {
 	$(".classSourceChecked").each(function(){
@@ -304,7 +308,7 @@ $(()=>{
 				}
 				})
 				.done(data=>{
-					$('.loadingModal').modal('hide');
+					closeModal();
 					let doneData=data.split(",");
 					console.log(doneData);
 					if(doneData[0]=="T")

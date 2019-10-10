@@ -32,6 +32,11 @@ let checkDate=function()
    	return true;
    }
 }
+function closeModal() {
+    $('.loadingModal').on('shown.bs.modal', function(e) {
+        $(".loadingModal").modal("hide");
+    });
+}
 $(()=>{
 	let orderDetails=JSON.parse($("#orderDetails").text());
 	console.log(orderDetails);
@@ -81,7 +86,7 @@ $(()=>{
 						}						
 						})
 						.done(data=>{
-							$('.loadingModal').modal('hide');
+							closeModal();
 							let doneData=data.split(",");
 							console.log(doneData);
 							if(doneData[0]=="T")

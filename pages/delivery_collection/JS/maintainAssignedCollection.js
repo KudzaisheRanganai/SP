@@ -27,7 +27,11 @@ let buildTruck=function()
 		
 	}
 }
-
+function closeModal() {
+    $('.loadingModal').on('shown.bs.modal', function(e) {
+        $(".loadingModal").modal("hide");
+    });
+}
 let buildProduct=function(tmp,arr)
 {
 	let tableEntry=$("<tr></tr>");
@@ -218,7 +222,7 @@ $(()=>{
 							data:{choice:4,remove:removeDeliveryAssignmentBool,SALE_ID:salesForTruck[k]["ORDER_ID"],TRUCK_ID:truckID}
 						})
 						.done(data=>{
-							$('.loadingModal').modal('hide');
+							closeModal();
 							console.log(data);
 							let doneData=data.split(",");
 							if(doneData[0]=="T")

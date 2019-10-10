@@ -26,7 +26,11 @@ Array.prototype.remByVal = function(val) {
     }
     return this;
 }
-
+function closeModal() {
+    $('.loadingModal').on('shown.bs.modal', function(e) {
+        $(".loadingModal").modal("hide");
+    });
+}
 $(()=>{
 	
 
@@ -344,7 +348,7 @@ $("button#confirmPlaceOrder").on('click', event => {
 	        }
 	    })
 	    .done(response => {
-	    	$('.loadingModal').modal('hide');
+	    	closeModal();
 	    	console.log(response);
 	    	var reponseArray = response.split(',');
 	    	INVOICE_ORDER_ID = reponseArray[1];

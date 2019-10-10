@@ -23,7 +23,11 @@ let buildTruck=function()
 		
 	}
 }
-
+function closeModal() {
+    $('.loadingModal').on('shown.bs.modal', function(e) {
+        $(".loadingModal").modal("hide");
+    });
+}
 let buildDelivery=function(tmp,arr,prodArr)
 {
 	let tableEntry=$("<tr></tr>");
@@ -107,7 +111,7 @@ $(()=>{
 				}
 			})
 			.done(data=>{
-				$('.loadingModal').modal('hide');
+				closeModal();
 				console.log(data);
 				let doneData=data.split(",");
 				if(doneData[0]=="T")

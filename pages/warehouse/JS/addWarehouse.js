@@ -6,7 +6,11 @@ let getVals=function()
 	arr["max"]=$("#wMax").val();
 	return arr;
 }
-
+function closeModal() {
+    $('.loadingModal').on('shown.bs.modal', function(e) {
+        $(".loadingModal").modal("hide");
+    });
+}
 $(()=>{
 	jQuery.validator.setDefaults({
   		debug: true,
@@ -29,12 +33,10 @@ $(()=>{
 			data:{choice:1,name:arr["name"],description:arr["des"],max:arr["max"]},
 			beforeSend:function(){
 					$('.loadingModal').modal('show');
-			},
-			complete:function(){
-				$('.loadingModal').modal('hide');
 			}
 			})
 			.done(data=>{
+				closeModal();
 				let doneData=data.split(",");
 				if(doneData[0]=="T")
 				{

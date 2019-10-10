@@ -22,6 +22,11 @@ let buildProduct=function(tmp,arr)
 	tableEntry.append(quantityEntry);
 	$("#tBody").append(tableEntry);
 }
+function closeModal() {
+    $('.loadingModal').on('shown.bs.modal', function(e) {
+        $(".loadingModal").modal("hide");
+    });
+}
 $(()=>{
 	orderDetails=JSON.parse($("#oDet").text());
 	orderProducts=JSON.parse($("#oProd").text());
@@ -100,7 +105,7 @@ $(()=>{
 				}
 			})
 			.done(data=>{
-				$('.loadingModal').modal('hide');
+				closeModal();
 				let doneData=data.split(",");
 				console.log(doneData);
 				if(doneData[0]=="T")
