@@ -207,14 +207,6 @@
         </div>
       </div>
       
-
-
-
-
-
-
-
-
       <div class="modal fade" id="generateDebtors" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered" role="document">
           <div class="modal-content">
@@ -226,7 +218,7 @@
 
             </div>
             <div class="modal-footer">  
-              <a href="pages/reports/debtors.php" class="btn btn-success" target="_blank" data-dismiss="modal">Yes</a>  
+              <a href="pages/reports/debtors.php" class="btn btn-success" target="_blank">Yes</a>  
               <button type="button" class="btn btn-danger" data-dismiss="modal">No</button>
             </div>
           </div>
@@ -245,7 +237,7 @@
 
             </div>
             <div class="modal-footer">  
-              <a href="pages/reports/stock-report.php" class="btn btn-success" target="_blank" data-dismiss="modal">Yes</a>  
+              <a href="pages/reports/stock-report.php" class="btn btn-success" target="_blank">Yes</a>  
               <button type="button" class="btn btn-danger" data-dismiss="modal">No</button>
             </div>
           </div>
@@ -286,7 +278,7 @@
                       <input type="hidden" class="form-control" id="USERNAME" name="USERNAME" value=<?php echo $_SESSION["name"]?> placeholder="Enter Date of Sale From">
                     </div>
                   </div>
-                  <input type="submit" class="btn btn-success" value="Yes" data-dismiss="modal"></input>
+                  <input type="submit" class="btn btn-success" value="Yes"></input>
                   <button type="button" class="btn btn-danger" data-dismiss="modal">No</button>
               </form>
 
@@ -331,7 +323,7 @@
 
             </div>
             <div class="modal-footer">  
-              <a href="pages/reports/creditors-report.php" class="btn btn-success" target="_blank" data-dismiss="modal">Yes</a> 
+              <a href="pages/reports/creditors-report.php" class="btn btn-success" target="_blank">Yes</a> 
               <button type="button" class="btn btn-danger" data-dismiss="modal">No</button>
             </div>
           </div>
@@ -356,7 +348,7 @@
             </div>
         </div>
       </div>
-            <div class="modal fade" id="generateDateSale" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal fade" id="generateDateSale" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered" role="document">
           <div class="modal-content">
             <div class="modal-header">
@@ -375,7 +367,7 @@
                     </select>
                   </div>
                 </div>
-                <input type="submit" class="btn btn-success" value="Generate Report"></input>
+                <input type="submit" class="btn btn-success" value="Generate Report">
                 <button type="button" class="btn btn-danger" data-dismiss="modal">No</button>
               </form>
           </div>
@@ -407,45 +399,35 @@
 
 
       <div class="col-md-2 errorModal successModal text-center">
-                            <div class="modal fade"  tabindex="-1" role="dialog" aria-labelledby="modal-default" aria-hidden="true" id="displayModal">
-                              <div class="modal-dialog modal- modal-dialog-centered modal-" role="document">
-                                  <div class="modal-content">
-                                    
-                                      <div class="modal-header" id="modalHeader">
+          <div class="modal fade"  tabindex="-1" role="dialog" aria-labelledby="modal-default" aria-hidden="true" id="displayModal">
+            <div class="modal-dialog modal- modal-dialog-centered modal-" role="document">
+                <div class="modal-content">
+                  
+                    <div class="modal-header" id="modalHeader">
 
-                                          <h6 class="modal-title" id="modal-title-default2" ></h6>
-                                          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                              <span aria-hidden="true">×</span>
-                                          </button>
-                                      </div>
-                                      
-                                      <div class="modal-body">
-                                          <p id="MMessage"></p>
-                                            <div id="animation" style="text-align:center;">
+                        <h6 class="modal-title" id="modal-title-default2" ></h6>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">×</span>
+                        </button>
+                    </div>
+                    
+                    <div class="modal-body">
+                        <p id="MMessage"></p>
+                          <div id="animation" style="text-align:center;">
 
-                                            </div>
-                                          
-                                      </div>
-                                      
-                                      <div class="modal-footer">
-                                          
-                                          <button type="button" class="btn btn-link  ml-auto" data-dismiss="modal" id="btnClose">Close</button>
-                                      </div>
-                                      
-                                  </div>
-                              </div>
-                            </div>
                           </div>
-                        </div>
-
-
-
-
-
-
-
-
-
+                        
+                    </div>
+                    
+                    <div class="modal-footer">
+                        
+                        <button type="button" class="btn btn-link  ml-auto" data-dismiss="modal" id="btnClose">Close</button>
+                    </div>
+                    
+                </div>
+            </div>
+          </div>
+        </div>
       <div class="modal fade" id="generateDate" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered" role="document">
           <div class="modal-content">

@@ -2,13 +2,9 @@ $(()=>{
 	$.ajax({
 		url:'PHPcode/truckcode.php',
 		type:'POST',
-		data:{choice:3},
-		beforeSend:function(){
-			$('.loadingModal').modal('show');
-		}
+		data:{choice:3}
 	})
 	.done(data=>{
-		closeModal();
 		if(data!="False")
 		{
 			let arr=JSON.parse(data);
@@ -36,8 +32,3 @@ $(()=>{
 		}
 	});
 });
-function closeModal() {
-    $('.loadingModal').on('shown.bs.modal', function(e) {
-        $(".loadingModal").modal("hide");
-    });
-}

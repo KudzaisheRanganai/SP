@@ -15,11 +15,6 @@ let getVals=function()
 	}
 	return arr;
 }
-function closeModal() {
-    $('.loadingModal').on('shown.bs.modal', function(e) {
-        $(".loadingModal").modal("hide");
-    });
-}
 ///////////////////////
 $(()=>{
 	jQuery.validator.setDefaults({
@@ -49,13 +44,7 @@ $(()=>{
 			$.ajax({
 				url:'PHPcode/truckcode.php',
 				type:'POST',
-				data:{choice:2,ID:arr["ID"],registration:arr["registration"],name:arr["name"],capacity:arr["capacity"],active:arr["active"]},
-				beforeSend:function(){
-					$('.loadingModal').modal('show');
-				},
-				complete:function(){
-					$('.loadingModal').modal('hide');
-				}
+				data:{choice:2,ID:arr["ID"],registration:arr["registration"],name:arr["name"],capacity:arr["capacity"],active:arr["active"]}
 			})
 			.done(data=>{
 				let doneData=data.split(",");
@@ -106,13 +95,9 @@ $(()=>{
 		$.ajax({
 			url:'PHPcode/truckcode.php',
 			type:'POST',
-			data:{choice:4,REGISTRATION_NUMBER:truckReg},
-			beforeSend:function(){
-					$('.loadingModal').modal('show');
-			}
+			data:{choice:4,REGISTRATION_NUMBER:truckReg}
 		})
 		.done(data=>{
-			closeModal();
 			let doneData=data.split(",");
 			if(doneData[0]=="T")
 			{

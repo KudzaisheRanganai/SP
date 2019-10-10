@@ -1,7 +1,9 @@
 <?php 
+  include_once("PHPcode/connection.php");
   include_once("../sessionCheckPages.php");
   $orderDetails=json_decode($_POST["ordDetails"]);
   $help="../../help/ReceiveStock.html";
+  mysqli_close($con);
 ?>
 <!DOCTYPE html>
 <html>
@@ -120,7 +122,8 @@
                               </th>
                               <td >
                                 <?php 
-                                $date=new DateTime($orderDetails->ORDER_DATE);
+                                $source = $orderDetails->ORDER_DATE;
+                                $date=new DateTime($source);
                                 echo $date->format("Y/m/d h:i a");
                                 ?>
                               </td>
@@ -261,13 +264,13 @@
           <?php include_once("../footer.php");?>
         </div>
       </div>
-      <div class="modal loadingModal fade bd-example-modal-lg justify-content-center" data-backdrop="static" data-keyboard="false" tabindex="-1">
+    </div>
+    <div class="modal loadingModal fade bd-example-modal-lg justify-content-center" data-backdrop="static" data-keyboard="false" tabindex="-1">
       <div class="modal-dialog modal-sm">
           <div class="modal-content px-auto" style="">
               <img class="loading" src="../../assets/img/loading/loading.gif">
           </div>
       </div>
-    </div>
     </div>
   <!-- Argon Scripts -->
   <!-- Core -->

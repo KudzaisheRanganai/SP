@@ -31,13 +31,9 @@ $(()=>{
         $.ajax({
             url:'PHPcode/regenerateEmployeeTag-SQL.php',
             type:'POST',
-            data: {employee_ID:employeeID},
-            beforeSend: function(){
-                $('.loadingModal').modal('show');
-            }
+            data: {employee_ID:employeeID}
         })
         .done(data=>{
-            closeModal();
             console.log(data);
             let confirmation = data.trim();
             $("#displayModal").modal("hide");
@@ -124,13 +120,9 @@ $(()=>{
         $.ajax({
             url:'PHPcode/verifyQRcode.php',
             type:'POST',
-            data: {qrCode:employeeID},
-            beforeSend: function(){
-                $('.loadingModal').modal('show');
-            }
+            data: {qrCode:employeeID}
         })
         .done(data=>{
-            closeModal();
             console.log(data);
             let confirmation = data.trim();
             if(confirmation.includes("success"))
@@ -184,13 +176,9 @@ $(()=>{
         $.ajax({
             url:'PHPcode/checkOut-SQL.php',
             type:'POST',
-            data: {qrCode:employeeID},
-            beforeSend: function(){
-                $('.loadingModal').modal('show');
-            }
+            data: {qrCode:employeeID}
         })
         .done(data=>{
-            closeModal();
             console.log(data);
             let confirmation = data.trim();
             if(confirmation.includes("success") && !confirmation.includes("Already CheckedOut!"))
@@ -242,13 +230,9 @@ $(()=>{
         $.ajax({
             url:'PHPcode/collect_wage_scanner.php',
             type:'POST',
-            data: {qrCode:employeeID},
-            beforeSend: function(){
-                $('.loadingModal').modal('show');
-            }
+            data: {qrCode:employeeID}
         })
         .done(data=>{
-            closeModal();
             console.log(data);
             let confirmation = data.trim();
             if(confirmation.includes("success"))
@@ -296,11 +280,5 @@ function callTwo(EMPLOYEE_ID){
 
 
 });
-
-function closeModal() {
-    $('.loadingModal').on('shown.bs.modal', function(e) {
-        $(".loadingModal").modal("hide");
-    });
-}
 
 

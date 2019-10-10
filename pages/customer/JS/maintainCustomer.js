@@ -370,13 +370,10 @@ $(()=>{
 			$.ajax({
 				url: 'PHPcode/customercode.php',
 				type: 'POST',
-				data: {choice:2,ID:cusID,num:count,name:arr["name"],vat:arr["VS"],contact:arr["con"],email:arr["email"],address:arr["address"],suburb:arr["suburb"],city:arr["city"],zip:arr["zip"],customer_type:customerTypeID,status:arr["status"],title:arr["title"]},
-				beforeSend: function(){
-			            $('.loadingModal').modal('show');
-			     } 
+				data: {choice:2,ID:cusID,num:count,name:arr["name"],vat:arr["VS"],contact:arr["con"],email:arr["email"],address:arr["address"],suburb:arr["suburb"],city:arr["city"],zip:arr["zip"],customer_type:customerTypeID,status:arr["status"],title:arr["title"]}
 			})
 			.done(data=>{
-				closeModal();
+				
 				console.log(data);
 				let doneData=data.split(",");
 				console.log(doneData);

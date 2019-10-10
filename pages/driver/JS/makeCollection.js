@@ -26,11 +26,6 @@ let buildProduct=function(tmp,arr)
 	tableEntry.append(nameEntry);
 	$("#tBody").append(tableEntry);
 }
-function closeModal() {
-    $('.loadingModal').on('shown.bs.modal', function(e) {
-        $(".loadingModal").modal("hide");
-    });
-}
 $(()=>{
 	assignments=JSON.parse($("#aData").text());
 	assignmentProducts=JSON.parse($("#apData").text());
@@ -121,15 +116,11 @@ $(()=>{
 			$.ajax({
 				url:'PHPcode/makecollectioncode.php',
 				type:'POST',
-				data:{num:assignProductIDs.length,assignment:sendAssignment,productIDs:assignProductIDs,productQty:assignProductQtys,COLLECTION_TRUCK_ID:delTruckID},
-				beforeSend:function(){
-					$('.loadingModal').modal('show');
-				}
+				data:{num:assignProductIDs.length,assignment:sendAssignment,productIDs:assignProductIDs,productQty:assignProductQtys,COLLECTION_TRUCK_ID:delTruckID}
 			})
 			.done(data=>{
 				let doneData=data.split(",");
 				console.log(doneData);
-				closeModal();
 				if(doneData[0]=="T")
 				{
 					$('#MHeader').text("Success!");

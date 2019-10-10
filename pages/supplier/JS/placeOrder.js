@@ -26,11 +26,6 @@ Array.prototype.remByVal = function(val) {
     }
     return this;
 }
-function closeModal() {
-    $('.loadingModal').on('shown.bs.modal', function(e) {
-        $(".loadingModal").modal("hide");
-    });
-}
 $(()=>{
 	
 
@@ -155,10 +150,7 @@ $(()=>{
 					type: 'POST',
 					data: { 
 						supplierID_ : ORDERSUPPLIERID,
-					},
-					beforeSend: function() {
-			
-			    	}
+					}
 				})
 				.done(response => {
 					let customerAddressDetails = JSON.parse(response);
@@ -341,14 +333,9 @@ $("button#confirmPlaceOrder").on('click', event => {
 	        	orderCollectionAddressID: ORDERCOLLECTIONADDRESSID,
 	        	collectionLongitude: orderCollectionLongitude,
 	        	collectionLatitude: orderCollectionLatitude
-	        },
-	        beforeSend: function(){
-	            $('.loadingModal').modal('show');
-	            //console.log("Longitude => "+orderCollectionLongitude+", Latitude => "+orderCollectionLatitude);
 	        }
 	    })
 	    .done(response => {
-	    	closeModal();
 	    	console.log(response);
 	    	var reponseArray = response.split(',');
 	    	INVOICE_ORDER_ID = reponseArray[1];

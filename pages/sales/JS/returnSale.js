@@ -183,12 +183,6 @@ $("button#confirmSalesManagerPassword").on('click', event => {
         type:'post',
         data:{ 
         	password:password
-        },
-        beforeSend: function(){
-            $('.loadingModal').modal('show');
-        },
-        complete: function(){
-            //$('.loadingModal').modal('hide');
         }
     })
     .done(response => {
@@ -227,15 +221,9 @@ $("button#confirmSalesManagerPassword").on('click', event => {
 		        	saleReturnProducts : SALERETURNPRODUCTS,
 		        	saleID : saleID,
 		        	reasonForReturn : reasonForReturn
-		        },
-		        beforeSend: function(){
-		            //$('.loadingModal').modal('show');
-		            //console.log("Longitude => "+saleDeliveryLongitude+", Latitude => "+saleDeliveryLatitude);
-
 		        }
 		    })
 		    .done(response => {
-		    	closeModal();
 		    	console.log(response);
 
 		        if (response == "success")
@@ -334,8 +322,3 @@ $(document).on('change','.returnQuantityNumber',function(e){
 		$(this).attr("style","border-color: #cad1d7; height: 2rem; color: #8898aa;")
 	}
 });
-function closeModal() {
-    $('.loadingModal').on('shown.bs.modal', function(e) {
-        $(".loadingModal").modal("hide");
-    });
-}

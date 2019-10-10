@@ -14,11 +14,6 @@ let preLoadDestinationWarehouse = function(num)
 	wOption.text(warehouseProduct[num]["NAME"]);
 	dW.append(wOption);
 }
-function closeModal() {
-    $('.loadingModal').on('shown.bs.modal', function(e) {
-        $(".loadingModal").modal("hide");
-    });
-}
 $(()=>{
 	productID=$("#pID").text();
 	let sizeID=parseInt($("#sizeID").text());
@@ -93,13 +88,9 @@ $(()=>{
 			$.ajax({
 				url:'PHPcode/writeoffcode.php',
 				type:'POST',
-				data:{WAREHOUSE_ID:warehouseID,PRODUCT_ID:productID,QUANTITY:quantity,REASON:reason},
-				beforeSend:function(){
-					$('.loadingModal').modal('show');
-				}
+				data:{WAREHOUSE_ID:warehouseID,PRODUCT_ID:productID,QUANTITY:quantity,REASON:reason}
 			})
 			.done(data=>{
-				closeModal();
 				let doneData=data.split(",");
 				console.log(doneData);
 				if(doneData[0]=="T")

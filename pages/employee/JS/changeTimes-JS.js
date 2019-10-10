@@ -15,12 +15,8 @@ $(document).ready(function(){
                 url:'PHPcode/changeTime-SQL.php',
                 type:'post',
                 data:{userID:user_id,checkin:arrival,checkout:depature},
-                beforeSend: function(){
-                    $('.loadingModal').modal('show');
-                },
                 success:function(data)
                 {
-                    closeModal();
                     console.log(data);
                     let confirmation = data.trim();
                     if(confirmation != "Failure")
@@ -60,9 +56,3 @@ $(document).ready(function(){
 
     });
 });
-
-function closeModal() {
-    $('.loadingModal').on('shown.bs.modal', function(e) {
-        $(".loadingModal").modal("hide");
-    });
-}

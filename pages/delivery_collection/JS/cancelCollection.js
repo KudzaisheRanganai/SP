@@ -4,11 +4,6 @@ dctStatus[2]="Truck Assigned";
 dctStatus[3]="Final Assignment";
 dctStatus[4]="On Delivery";
 dctStatus[5]="Delivered";
-function closeModal() {
-    $('.loadingModal').on('shown.bs.modal', function(e) {
-        $(".loadingModal").modal("hide");
-    });
-}
 $(()=>{
 	let collectionData=JSON.parse($("#collectionData").text());
 	console.log(collectionData);
@@ -26,13 +21,9 @@ $(()=>{
 			$.ajax({
 			url:'PHPcode/collectioncode.php',
 			type:'POST',
-			data:{choice:2,collectionID:collectionData["COLLECTION_ID"]},
-			beforeSend:function(){
-				$('.loadingModal').modal('show');
-			}
+			data:{choice:2,collectionID:collectionData["COLLECTION_ID"]}
 			})
 			.done(data=>{
-				closeModal();
 				let doneData=data.split(",");
 				if(doneData[0]=="T")
 				{

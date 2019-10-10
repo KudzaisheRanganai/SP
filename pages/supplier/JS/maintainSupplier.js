@@ -34,11 +34,6 @@ let getInput= function()
 	addSupplierArr["zip"]=zipArr;
 	return addSupplierArr;
 }
-function closeModal() {
-    $('.loadingModal').on('shown.bs.modal', function(e) {
-        $(".loadingModal").modal("hide");
-    });
-}
 ///////////////////////////////////////////////////
 let createAddress= function(tmp){
 		let formgroup = $('<div></div>').addClass('form-group col').attr('id', 'address'+tmp);;
@@ -354,14 +349,9 @@ $(()=>{
 			$.ajax({
 				url: 'PHPcode/addSupplierCode.php',
 				type: 'POST',
-				data: {choice:2,ID:supID,num:count,name:arr["name"],vat:arr["VATNumber"],contact:arr["con"],email:arr["email"],address:arr["address"],suburb:arr["suburb"],city:arr["city"],zip:arr["zip"]},
-				beforeSend:function(){
-					$('.loadingModal').modal('show');
-				}
+				data: {choice:2,ID:supID,num:count,name:arr["name"],vat:arr["VATNumber"],contact:arr["con"],email:arr["email"],address:arr["address"],suburb:arr["suburb"],city:arr["city"],zip:arr["zip"]}
 			})
 			.done(data=>{
-
-				closeModal();
 				let doneData=data.split(",");
 				console.log(doneData);
 				if(doneData[0]=="T")

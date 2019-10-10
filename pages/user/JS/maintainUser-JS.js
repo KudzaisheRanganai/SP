@@ -9,14 +9,9 @@ $(document).ready(function()
             $.ajax({
                 url:"PHPcode/addUser-SQL.php",
                 type:'POST',
-                data:{choice:0},
-                beforeSend: function(){
-                    $('.loadingModal').modal('show');
-                }
+                data:{choice:0}
             })
             .done(data=>{
-              
-                closeModal();
               
                 if(data!="False")
                 {
@@ -141,8 +136,3 @@ $(document).ready(function()
 
 
 });
-function closeModal() {
-    $('.loadingModal').on('shown.bs.modal', function(e) {
-        $(".loadingModal").modal("hide");
-    });
-}

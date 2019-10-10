@@ -12,13 +12,9 @@ $(document).ready(function(){
             $.ajax({
                 url:'assets/login/PHPcode/login.php',
                 type:'post',
-                data:{email:email, password:password},
-                beforeSend: function(){
-                    $('.loadingModal').modal('show');
-                }
+                data:{email:email, password:password}
             })
             .done(response => {
-                closeModal();
                 console.log(response);
                 if(response=="success")
                 {
@@ -57,9 +53,3 @@ $(document).ready(function(){
 
     });
 });
-
-function closeModal() {
-    $('.loadingModal').on('shown.bs.modal', function(e) {
-        $(".loadingModal").modal("hide");
-    });
-}

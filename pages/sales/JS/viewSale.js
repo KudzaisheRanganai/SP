@@ -193,10 +193,7 @@ $(()=>{
 		type: 'POST',
 		data: { 
 			customerID : customerID
-		},
-		beforeSend: function() {
-
-    	}
+		}
 	})
 	.done(response => {
 		console.log(response);
@@ -226,10 +223,7 @@ $(()=>{
 		type: 'POST',
 		data: { 
 			saleID : saleIDForSale
-		},
-		beforeSend: function() {
-
-    	}
+		}
 	})
 	.done(response => {
 		
@@ -269,13 +263,9 @@ $("button#updateSaleStatus").on('click', event => {
 		data: { 
 			saleID : saleID,
 			saleProducts : sProductsArr
-		},
-		beforeSend: function(){
-            $('.loadingModal').modal('show');
-        }
+		}
 	})
 	.done(response => {
-		closeModal();
 		console.log(response);
 		if (response == "success")
 		{
@@ -347,13 +337,9 @@ $("button#calculateChangeButton").on('click', function(event){
 			type: 'POST',
 			data: { 
 				saleID : saleID,AMOUNT:THESALETOTAL
-			},
-	        beforeSend: function(){
-	            $('.loadingModal').modal('show');
-	        }
+			}
 		})
 		.done(response => {
-			closeModal();
 
 			console.log(response);
 			if (response == "success")
@@ -398,13 +384,7 @@ $("button#makeAccountPaymentButton").on('click', event => {
 			saleID : saleID,
 			customerID : customerID,
 			saleTotalAmount: THESALETOTAL
-		},
-        beforeSend: function(){
-            $('.loadingModal').modal('show');
-        },
-        complete: function(){
-            $('.loadingModal').modal('hide');
-        }
+		}
 	})
 	.done(response => {
 		console.log(response);
@@ -433,8 +413,3 @@ $("button#makeAccountPaymentButton").on('click', event => {
 		ajaxDone = true;
 	});	
 });
-function closeModal() {
-    $('.loadingModal').on('shown.bs.modal', function(e) {
-        $(".loadingModal").modal("hide");
-    });
-}
