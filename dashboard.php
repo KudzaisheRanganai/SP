@@ -215,10 +215,10 @@
       <div class="row">
         <div class="col">
           <div class="card shadow">
-            <div class="card-header bg-transparent">
-              <h3 class="mb-0">Welcome</h3>
+            <div class="card-header bg-transparent text-center">
+              <h2 class="mb-0">Welcome</h2>
             </div>
-            <div class="card-body">
+            <div class="card-body px-5 py-3">
               <img src="./assets/img/brand/blue.png" class="" style="width: 100%; height: auto;" alt="...">
             </div>
           </div>
