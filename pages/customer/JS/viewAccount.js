@@ -51,6 +51,8 @@ $(()=>{
 	var CUSTOMER_ID=$('#ID').attr('value');
 	console.log(CUSTOMER_ID);
 	$("#viewBS").attr("href","../../documents/"+CUSTOMER_ID+"/"+CUSTOMER_ID+"_Bank-Statement.pdf");
+	$("#viewID").attr("href","../../documents/"+CUSTOMER_ID+"/"+CUSTOMER_ID+"_ID-Copy.pdf");
+	$("#viewRes").attr("href","../../documents/"+CUSTOMER_ID+"/"+CUSTOMER_ID+"_Proof-Of-Residence.pdf");
 	$.ajax({
 		url: 'PHPcode/customerAccount.php',
 		type: 'POST',
