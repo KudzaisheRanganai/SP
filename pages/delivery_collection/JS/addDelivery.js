@@ -31,11 +31,6 @@ let checkDate=function()
    	return true;
    }
 }
-function closeModal() {
-    $('.loadingModal').on('shown.bs.modal', function(e) {
-        $(".loadingModal").modal("hide");
-    });
-}
 $(()=>{
 	let customerData=JSON.parse($("#cData").text());
 	let saleID=$("#sID").text();
@@ -82,13 +77,9 @@ $(()=>{
 					$.ajax({
 						url: 'PHPcode/deliverycode.php',
 						type: 'POST',
-						data:{choice:1,SALE_ID:saleID,ADDRESS_ID:chooseAddressID,dDate:deliveryDate,latitude:lat,longitude:long},
-						beforeSend:function(){
-							$('.loadingModal').modal('show');
-						}
+						data:{choice:1,SALE_ID:saleID,ADDRESS_ID:chooseAddressID,dDate:deliveryDate,latitude:lat,longitude:long}
 						})
 						.done(data=>{
-							closeModal();
 							let doneData=data.split(",");
 							console.log(doneData);
 							if(doneData[0]=="T")

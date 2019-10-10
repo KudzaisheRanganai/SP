@@ -48,14 +48,10 @@ $(()=>{
 	    $.ajax({
 	      	type: 'POST',
 	      	url: 'PHPcode/searchScanner-SQL.php',
-	      	data: {qrCode : content},
-	      	beforeSend: function(){
-	        	$('.loadingModal').modal('show');
-	        }
+	      	data: {qrCode : content}
 	     })
 	      .done(data => {
 	      // do something with data
-	      closeModal();
             console.log(data);
             let confirmation = data.trim();
             
@@ -132,10 +128,4 @@ $(()=>{
   {
     $("#emptySearch").hide();
   }
-}
-
-function closeModal() {
-    $('.loadingModal').on('shown.bs.modal', function(e) {
-        $(".loadingModal").modal("hide");
-    });
 }

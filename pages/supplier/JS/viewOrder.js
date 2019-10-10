@@ -1,11 +1,6 @@
 var productsArr;
 var orderProductsArray;
 var orderTotal = 0.00;
-function closeModal() {
-    $('.loadingModal').on('shown.bs.modal', function(e) {
-        $(".loadingModal").modal("hide");
-    });
-}
 $(()=>{
 	let collectionCheck=$("#collectionCheck").text();
 	console.log(ORDER_ID);
@@ -66,10 +61,7 @@ $(()=>{
 		type: 'POST',
 		data: { 
 			orderID : ORDER_ID
-		},
-		beforeSend: function() {
-
-    	}
+		}
 	})
 	.done(response => {
 		
@@ -136,13 +128,9 @@ $(()=>{
 		$.ajax({
 			url:'PHPcode/makepayment.php',
 			type:'POST',
-			data:{orderID : ORDER_ID,amount:orderTotal,supplierID:orderDetails["SUPPLIER_ID"]},
-			beforeSend:function(){
-				$('.loadingModal').modal('show');
-			}
+			data:{orderID : ORDER_ID,amount:orderTotal,supplierID:orderDetails["SUPPLIER_ID"]}
 		})
 		.done(data=>{
-			closeModal();
 			let doneData=data.split(",");
 			console.log(doneData);
 			if(doneData[0]=="T")
@@ -254,14 +242,10 @@ $("#confirmDeleteCustomer").on('click',function(e){
 			email: SUPPLIER_EMAIL,
 			orderNumber: ORDER_ID,
 			orderDate : ORDER_DATE
-		},
-		beforeSend: function() {
-			$('.loadingModal').modal('show');
-    	}
+		}
 	})
 	.done(data=>{
 		console.log(data);
-		closeModal();
 		
 		if(data=="success")
 		{

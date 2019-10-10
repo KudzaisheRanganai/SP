@@ -69,13 +69,9 @@ $(document).ready(function(){
                     data:  new FormData(this),
                     contentType: false,
                     cache: false,
-                    processData: false,
-                    beforeSend: function(){
-                        $('.loadingModal').modal('show');
-                    }
+                    processData: false
                 })
                 .done(data=>{
-                    closeModal();
                     console.log(data);
                     if(data=="success")
                     {

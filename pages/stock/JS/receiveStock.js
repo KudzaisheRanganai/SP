@@ -95,13 +95,9 @@ $(()=>{
 			$.ajax({
 				url:'PHPcode/receivestockcode.php',
 				type:'POST',
-				data:{num:orderProducts.length,orderID:orderDetails["ORDER_ID"],productIDs:assignProductIDs,productQtys:assignProductQtys,differenceQty:quantityDifference},
-				beforeSend:function(){
-					$('.loadingModal').modal('show');
-				}
+				data:{num:orderProducts.length,orderID:orderDetails["ORDER_ID"],productIDs:assignProductIDs,productQtys:assignProductQtys,differenceQty:quantityDifference}
 			})
 			.done(data=>{
-				closeModal();
 				let doneData=data.split(",");
 				console.log(doneData);
 				if(doneData[0]=="T")
@@ -126,9 +122,3 @@ $(()=>{
 		}
 	});
 });
-
-function closeModal() {
-    $('.loadingModal').on('shown.bs.modal', function(e) {
-        $(".loadingModal").modal("hide");
-    });
-}

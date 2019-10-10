@@ -250,10 +250,7 @@ $(()=>{
 					type: 'POST',
 					data: { 
 						customerID : SALECUSTOMERID,
-					},
-					beforeSend: function() {
-			
-			    	}
+					}
 				})
 				.done(response => {
 					let customerAddressDetails = JSON.parse(response);
@@ -444,9 +441,6 @@ $("button#confirmSalesManagerPassword").on('click', event => {
         type:'post',
         data:{ 
         	password:password
-        },
-        beforeSend: function(){
-            $('.loadingModal').modal('show');
         }
     })
     .done(response => {
@@ -496,16 +490,10 @@ $("button#confirmSalesManagerPassword").on('click', event => {
 			        	saleDeliveryID: SALEDELIVERYADDRESSID,
 			        	deliveryLongitude_: saleDeliveryLongitude,
 			        	deliveryLatitude_: saleDeliveryLatitude
-			        },
-			        beforeSend: function(){
-			            //$('.loadingModal').modal('show');
-			            //console.log("Longitude => "+saleDeliveryLongitude+", Latitude => "+saleDeliveryLatitude);
-
 			        }
 	
 			    })
 			    .done(response => {
-			    	closeModal();
 
 			    	console.log(response);
 			    	var reponseArray = response.split(',');
@@ -553,7 +541,6 @@ $("button#confirmSalesManagerPassword").on('click', event => {
 		}
 		else if(response == "failed")
 		{
-			closeModal();
 			$('#modal-title-default2').text("Error!");
 			$('#modalText').text("Incorrect password entered");
 			$('#animation').html('<div class="crossx-circle"><div class="background"></div><div style="position: relative;"><div class="crossx draw" style="text-align:center; position: absolute !important;"></div><div class="crossx2 draw2" style="text-align:center; position: absolute !important;"></div></div></div>');
@@ -563,7 +550,6 @@ $("button#confirmSalesManagerPassword").on('click', event => {
 		}
 		else if(response == "Password empty")
 		{
-			closeModal();
 			$('#modal-title-default2').text("Error!");
 			$('#modalText').text("Please enter a password");
 			$('#animation').html('<div class="crossx-circle"><div class="background"></div><div style="position: relative;"><div class="crossx draw" style="text-align:center; position: absolute !important;"></div><div class="crossx2 draw2" style="text-align:center; position: absolute !important;"></div></div></div>');
@@ -573,7 +559,6 @@ $("button#confirmSalesManagerPassword").on('click', event => {
 		}
 		else
 		{
-			closeModal();
 			$('#modal-title-default2').text("Database Error!");
 			$('#modalText').text("Database error whilst verifying password");
 			$('#animation').html('<div class="crossx-circle"><div class="background"></div><div style="position: relative;"><div class="crossx draw" style="text-align:center; position: absolute !important;"></div><div class="crossx2 draw2" style="text-align:center; position: absolute !important;"></div></div></div>');
@@ -912,11 +897,6 @@ $(document).on('change','.quantityBox',function(e){
 		$(this).attr("style","border-color: #cad1d7; height: 2rem; color: #8898aa;")
 	}
 });
-function closeModal() {
-    $('.loadingModal').on('shown.bs.modal', function(e) {
-        $(".loadingModal").modal("hide");
-    });
-}
 
 // calculateRowTotalUnitPrice(unitPriceElement);
 // calculateRowTotalQuantity(quantityElement);

@@ -27,11 +27,6 @@ let preLoadSizeType = function(num)
 	wOption.text(sizeType[num]);
 	dW.append(wOption);
 }
-function closeModal() {
-    $('.loadingModal').on('shown.bs.modal', function(e) {
-        $(".loadingModal").modal("hide");
-    });
-}
 $(()=>{
 	productID=$("#pID").text();
 	sizeID=parseInt($("#sizeID").text());
@@ -130,13 +125,9 @@ $(()=>{
 			$.ajax({
 				url:'PHPcode/convertstockcode.php',
 				type:'POST',
-				data:{WAREHOUSE_ID:warehouseID,PRODUCT_ID:productID,CPRODUCT_ID:toProductID,QUANTITY:quantity,CONVERTQTY:newQuantity},
-				beforeSend:function(){
-					$('.loadingModal').modal('show');
-				}
+				data:{WAREHOUSE_ID:warehouseID,PRODUCT_ID:productID,CPRODUCT_ID:toProductID,QUANTITY:quantity,CONVERTQTY:newQuantity}
 			})
 			.done(data=>{
-				closeModal();
 				let doneData=data.split(",");
 				console.log(doneData);
 				if(doneData[0]=="T")

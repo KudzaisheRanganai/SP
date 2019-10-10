@@ -108,11 +108,6 @@ $("#finaliseReturn").on('click',function(e){
 		$("#modal-returnOrder").modal("show");
 	}
 });
-function closeModal() {
-    $('.loadingModal').on('shown.bs.modal', function(e) {
-        $(".loadingModal").modal("hide");
-    });
-}
 $("button#confirmSalesManagerPassword").on('click', event => {
 
 	var password = $("#salesManagerPassword").val().trim();
@@ -121,12 +116,6 @@ $("button#confirmSalesManagerPassword").on('click', event => {
         type:'post',
         data:{ 
         	password:password
-        },
-        beforeSend: function(){
-            $('.loadingModal').modal('show');
-        },
-        complete: function(){
-            // $('.loadingModal').modal('hide');
         }
     })
     .done(response => {
@@ -168,14 +157,9 @@ $("button#confirmSalesManagerPassword").on('click', event => {
 		        	orderReturnProducts : SALERETURNPRODUCTS,
 		        	orderID : ORDER_ID,
 		        	reasonForReturn : reasonForReturn
-		        },
-		        beforeSend: function(){
-		            //$('.loadingModal').modal('show');
-		            //console.log("Longitude => "+saleDeliveryLongitude+", Latitude => "+saleDeliveryLatitude);
 		        }
 		    })
 		    .done(response => {
-		    	closeModal();
 		    	console.log(response);
 
 		        if (response == "success")
@@ -227,7 +211,6 @@ $("button#confirmSalesManagerPassword").on('click', event => {
 		}
 		else if(response == "Password empty")
 		{
-			$('.loadingModal').modal('hide');
 			$('#modal-title-default2').text("Error!");
 			$('#modalText').text("Please enter a password");
 			$("#modalCloseButton").attr("onclick","");
@@ -237,7 +220,6 @@ $("button#confirmSalesManagerPassword").on('click', event => {
 		}
 		else if(response == "Database error")
 		{
-			$('.loadingModal').modal('hide');
 			$('#modal-title-default2').text("Database Error!");
 			$('#modalText').text("Database error whilst verifying password");
 			$('#animation').html('<div class="crossx-circle"><div class="background"></div><div style="position: relative;"><div class="crossx draw" style="text-align:center; position: absolute !important;"></div><div class="crossx2 draw2" style="text-align:center; position: absolute !important;"></div></div></div>');

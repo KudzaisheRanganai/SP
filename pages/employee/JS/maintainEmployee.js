@@ -283,14 +283,10 @@ $(()=>{
                     data: form,
                     processData: false,
                     contentType: false,
-                    cache: false,
-                    beforeSend: function(){
-                        $('.loadingModal').modal('show');
-                    }
+                    cache: false
                 })
                 .done(data=>
                 {
-                    closeModal();
                     console.log(data);
                     let doneData=data.split(",");
                     if(doneData[0]=="T")
@@ -361,10 +357,4 @@ function PreviewPic()
     pdffile=document.getElementById("fileUpload").files[0];
     pdffile_url=URL.createObjectURL(pdffile);
     $('#IDViewer').attr('src',pdffile_url);
-}
-
-function closeModal() {
-    $('.loadingModal').on('shown.bs.modal', function(e) {
-        $(".loadingModal").modal("hide");
-    });
 }

@@ -122,11 +122,6 @@ let getInput= function()
 		formgroup.append(form_row2);
 		return formgroup;
 	}
-function closeModal() {
-    $('.loadingModal').on('shown.bs.modal', function(e) {
-        $(".loadingModal").modal("hide");
-    });
-}
 $(()=>{
 	//APP ID: 4ubUBkg0ecyvqIcmRpJw
 	//APP CODE : R1S3qwnTFxK3FbiK1ucSqw
@@ -302,13 +297,9 @@ $(()=>{
 				$.ajax({
 				url: 'PHPcode/addSupplierCode.php',
 				type: 'POST',
-				data:{choice:1,num:count,name:arr["name"],vat:arr["VATNumber"],contact:arr["con"],email:arr["email"],address:arr["address"],suburb:arr["suburb"],city:arr["city"],zip:arr["zip"]},
-				beforeSend:function(){
-					$('.loadingModal').modal('show');
-				} 
+				data:{choice:1,num:count,name:arr["name"],vat:arr["VATNumber"],contact:arr["con"],email:arr["email"],address:arr["address"],suburb:arr["suburb"],city:arr["city"],zip:arr["zip"]} 
 				})
 				.done(data=>{
-					closeModal();
 					let doneData=data.split(",");
 					console.log(doneData);
 					if(doneData[0]=="T")

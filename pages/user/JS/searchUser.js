@@ -2,16 +2,9 @@ $(()=>{
 	$.ajax({
 		url: 'PHPcode/searchUser-SQL.php',
 		type: 'POST',
-		data: {choice:2},
-		beforeSend: function(){
-			$('.loadingModal').modal('show');
-		}
+		data: {choice:2}
 	})
-	.done(data=>{
-
-
-		closeModal();
-		
+	.done(data=>{	
 		console.log(data);
 		if(data!="False")
 		{
@@ -35,8 +28,3 @@ $(()=>{
 		}
 	});
 });
-function closeModal() {
-    $('.loadingModal').on('shown.bs.modal', function(e) {
-        $(".loadingModal").modal("hide");
-    });
-}

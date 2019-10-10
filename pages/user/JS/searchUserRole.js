@@ -2,17 +2,10 @@ $(()=>{
     $.ajax({
         url: 'PHPcode/searchUserRole_.php',
         type: 'POST',
-        data: {choice:2},
-        beforeSend: function(){
-            $('.loadingModal').modal('show');
-        }
+        data: {choice:2}
     })
     .done(data=>{
-        //console.log(data);
-
-
-        closeModal();
-       
+        //console.log(data);      
         if(data!="False")
         {
             let arr=JSON.parse(data);
@@ -62,8 +55,3 @@ $(()=>{
         }
     });
 });
-function closeModal() {
-    $('.loadingModal').on('shown.bs.modal', function(e) {
-        $(".loadingModal").modal("hide");
-    });
-}
