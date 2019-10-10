@@ -105,6 +105,7 @@ else
                             }
                             else if($currentTime >= $setCheckinTime && $currentTime <= $checkoutTime)
                             {
+                                echo "IN HERE";
                                 $timeCheckedIn = $currentTime;
                                 $query = "INSERT INTO `EMPLOYEE_HOUR`(`DATE`, `CHECK_IN_TIME`, `CHECK_OUT_TIME`, `EMPLOYEE_ID`) VALUES ('$day','$currentTime','NULL','$employeeID')";
                                 $submitQuery = mysqli_query($DBConnect,$query);
@@ -132,10 +133,9 @@ else
 
                         while($correctHash = mysqli_fetch_assoc($query_QR))
                         {
-                            echo "IN HERE";
                             if($correctHash["HASH"] == $verifyID && $addedTime == "Time SQL works" )
                             {
-
+                                echo "CORRECT HASH";
                                 $DateAudit = date('Y-m-d H:i:s');
                                 $Functionality_ID='2.4';
                                 $userID = $_SESSION['userID'];
@@ -148,7 +148,6 @@ else
                                 break;
                             }
                         }
-                        echo "EXITING";
                     }
                     else
                     {
