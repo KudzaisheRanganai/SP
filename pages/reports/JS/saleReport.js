@@ -69,7 +69,7 @@ $(()=>{
                          
                              
                             total=total+parseFloat(arr[k]["SALE_AMOUNT"]);
-                             var totalSales = arr[k]["TOTAL_SALES"];
+                              totalSales = arr[k]["TOTAL_SALES"];
                              //console.log(totalSales);
                              formattedTime = daysOfTheWeek;
                              staticTotalSales =  parseFloat(arr[k]["SALE_AMOUNT"]);
@@ -97,7 +97,7 @@ $(()=>{
                          
                              
                             total=total+parseFloat(arr[k]["SALE_AMOUNT"]); 
-                             var totalSales = arr[k]["TOTAL_SALES"];
+                             totalSales = arr[k]["TOTAL_SALES"];
                              //console.log(totalSales);
                              formattedTime = daysOfTheWeek;
                              staticTotalSales =  parseFloat(arr[k]["SALE_AMOUNT"]);
@@ -123,15 +123,15 @@ $(()=>{
                     
                     }
                 
-                totalSales = parseFloat(total);
-                totalSales = totalSales.toFixed(2);
-                totalSales = numberWithSpaces(totalSales);
-                totalSales = "R"+ totalSales;
+                var totalSalesAll = parseFloat(total);
+                totalSalesAll = totalSalesAll.toFixed(2);
+                totalSalesAll = numberWithSpaces(totalSalesAll);
+                totalSalesAll = "R"+ totalSalesAll;
 
             
                 
                $("#tBody").append(tableEntries);
-               $('#total').append('<td>'+totalSales+'</td>');
+               $('#total').append('<td>'+totalSalesAll+'</td>');
 
 
                //Display Graph
