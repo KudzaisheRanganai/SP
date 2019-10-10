@@ -4,6 +4,7 @@
   include_once("PHPcode/functions.php");
   $collectionData=json_decode($_POST["COLLECTION_DATA"]);
   $productData=getOrderProducts($con,$_POST["ORDER_ID"]);
+  $help="../../help/SearchOrderCollection.html";
   mysqli_close($con);
 ?>
 <!DOCTYPE html>

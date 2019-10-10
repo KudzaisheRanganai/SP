@@ -129,7 +129,7 @@ $(()=>{
 	{
 		$("#makePaymentButton").attr("disabled",false);
 		$("#btnAddDelivery").attr("disabled",true);
-		//$("#collectSaleButton").attr("disabled",true);
+		$("#collectSaleButton").attr("disabled",true);
 		$("#btnMakeReturn").attr("disabled",true);
 	}
 
