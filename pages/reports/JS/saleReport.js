@@ -75,7 +75,7 @@ $(()=>{
                              staticTotalSales =  parseFloat(arr[k]["SALE_AMOUNT"]);
 
                             let staticTotalSalesFormatted = parseFloat(arr[k]["SALE_AMOUNT"]);
-                            staticTotalSalesFormatted = totalSales.toFixed(2);
+                            staticTotalSalesFormatted = staticTotalSalesFormatted.toFixed(2);
                             staticTotalSalesFormatted = numberWithSpaces(staticTotalSalesFormatted);
                             staticTotalSalesFormatted = "R"+ staticTotalSalesFormatted;
 
@@ -87,7 +87,7 @@ $(()=>{
                              }
                              saleGraphDays.push(formattedTime);
                              
-                                 tableEntries+="<tr><td class='no'>"+formattedTime+"</td><td class='desc' id='TotalSales'>"+totalSales +"</td><td class='unit-right' id='SaleTotal'>"+staticTotalSalesFormatted+"</td></tr>";
+                                 tableEntries+="<tr><td class='no'>"+formattedTime+"</td><td class='desc' id='TotalSales'>"+staticTotalSalesFormatted +"</td><td class='unit-right' id='SaleTotal'>"+staticTotalSalesFormatted+"</td></tr>";
                                  
                         }
                         else if(salePeriod=="Monthly")
@@ -103,7 +103,7 @@ $(()=>{
                              staticTotalSales =  parseFloat(arr[k]["SALE_AMOUNT"]);
 
                             let staticTotalSalesFormatted = parseFloat(arr[k]["SALE_AMOUNT"]);
-                            staticTotalSalesFormatted = totalSales.toFixed(2);
+                            staticTotalSalesFormatted = staticTotalSalesFormatted.toFixed(2);
                             staticTotalSalesFormatted = numberWithSpaces(staticTotalSalesFormatted);
                             staticTotalSalesFormatted = "R"+ staticTotalSalesFormatted;
 
@@ -113,7 +113,7 @@ $(()=>{
                              
                              saleGraphDays.push(formattedTime);
                              
-                                 tableEntries+="<tr><td class='no'>"+formattedTime+"</td><td class='desc' id='TotalSales'>"+totalSales +"</td><td class='unit-right' id='SaleTotal'>"+staticTotalSalesFormatted+"</td></tr>";
+                                 tableEntries+="<tr><td class='no'>"+formattedTime+"</td><td class='desc' id='TotalSales'>"+staticTotalSalesFormatted +"</td><td class='unit-right' id='SaleTotal'>"+staticTotalSalesFormatted+"</td></tr>";
                                  
                         }
                         
