@@ -89,17 +89,16 @@ else
                     
                         if($query_QR)
                         {
-                            echo "INSIDE QUERY QR";
                             if($currentTime <= $setCheckinTime)
                             {
-                                echo "currentTime <= setCheckinTime";
+                                //echo "currentTime <= setCheckinTime";
                                 $currentTime = $setCheckinTime;
                                 $timeCheckedIn = $setCheckinTime;
                                 
                                 
                                 $query = "INSERT INTO `EMPLOYEE_HOUR`(`DATE`, `CHECK_IN_TIME`, `EMPLOYEE_ID`) VALUES ('$day','$currentTime','$employeeID')";
 
-                                echo $query;
+                                //echo $query;
                             
                                 $submitQuery = mysqli_query($DBConnect,$query);
                                 
@@ -111,7 +110,7 @@ else
                             }
                             else if($currentTime >= $setCheckinTime && $currentTime <= $checkoutTime)
                             {
-                                echo "currentTime >= $setCheckinTime && $currentTime <= $checkoutTime";
+                                //echo "currentTime >= $setCheckinTime && $currentTime <= $checkoutTime";
                                 $timeCheckedIn = $currentTime;
                                 $query = "INSERT INTO `EMPLOYEE_HOUR`(`DATE`, `CHECK_IN_TIME`, `EMPLOYEE_ID`) VALUES ('$day','$currentTime','$employeeID')";
                                 $submitQuery = mysqli_query($DBConnect,$query);
@@ -136,12 +135,11 @@ else
                         //Audit Log Check-In Changes
                         $changes="ID : ".$employeeID."| Employee Checked-In | Employee Check-In Date and Time :".$currentTime;
 
-                        echo "added time=>".$addedTime;
+                        //echo "added time=>".$addedTime;
                         while($correctHash = mysqli_fetch_assoc($query_QR))
                         {
                             if($correctHash["HASH"] == $verifyID && $addedTime == "Time SQL works" )
                             {
-                                echo "CORRECT HASH";
                                 $DateAudit = date('Y-m-d H:i:s');
                                 $Functionality_ID='2.4';
                                 $userID = $_SESSION['userID'];
