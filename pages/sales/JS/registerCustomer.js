@@ -660,7 +660,7 @@ $(()=>{
 					if(doneData[0]=="T")
 					{
 						$.ajax({
-							url: '../../mailjet/mail_registration.php',
+							url: '../mailjet/mail_registration.php',
 							type: 'GET',
 							data:{name:arr["name"],email:arr["email"]}
 						})
