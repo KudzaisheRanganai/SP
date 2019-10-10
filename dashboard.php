@@ -208,6 +208,26 @@
 
       <?php
         }
+        else
+        {
+      ?>
+
+      <div class="row">
+        <div class="col">
+          <div class="card shadow">
+            <div class="card-header bg-transparent">
+              <h3 class="mb-0">Welcome</h3>
+            </div>
+            <div class="card-body">
+              <img src="./assets/img/brand/blue.png" class="" style="width: 100%; height: auto;" alt="...">
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+      <?php
+        }
       ?>
 
       <form id="delView" method="POST" action="pages/delivery_collection/assign-truck-view-delivery.php">
