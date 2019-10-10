@@ -87,7 +87,7 @@ $(()=>{
                              }
                              saleGraphDays.push(formattedTime);
                              
-                                 tableEntries+="<tr><td class='no'>"+formattedTime+"</td><td class='desc' id='TotalSales'>"+staticTotalSalesFormatted +"</td><td class='unit-right' id='SaleTotal'>"+staticTotalSalesFormatted+"</td></tr>";
+                                 tableEntries+="<tr><td class='no'>"+formattedTime+"</td><td class='desc' id='TotalSales'>"+totalSales +"</td><td class='unit-right' id='SaleTotal'>"+staticTotalSalesFormatted+"</td></tr>";
                                  
                         }
                         else if(salePeriod=="Monthly")
@@ -113,7 +113,7 @@ $(()=>{
                              
                              saleGraphDays.push(formattedTime);
                              
-                                 tableEntries+="<tr><td class='no'>"+formattedTime+"</td><td class='desc' id='TotalSales'>"+staticTotalSalesFormatted +"</td><td class='unit-right' id='SaleTotal'>"+staticTotalSalesFormatted+"</td></tr>";
+                                 tableEntries+="<tr><td class='no'>"+formattedTime+"</td><td class='desc' id='TotalSales'>"+totalSales +"</td><td class='unit-right' id='SaleTotal'>"+staticTotalSalesFormatted+"</td></tr>";
                                  
                         }
                         
