@@ -128,14 +128,17 @@
     </div>
   </footer>
   </div>
+    <div class="modal loadingModal fade bd-example-modal-lg justify-content-center" role="dialog" aria-hidden="true" tabindex="-1" id="loadingModal">
+        <div class="modal-dialog modal-sm">
+            <div class="modal-content px-auto" style="">
+                <img class="loading" src="assets/img/loading/loading.gif">
+            </div>
+            <button type="button" hidden="true" class="btn  ml-auto closeModal" data-dismiss="modal" id="btnClose"></button>
+        </div>
+    </div>
   </div>
-  <div class="modal loadingModal fade bd-example-modal-lg justify-content-center" data-backdrop="static" data-keyboard="false" tabindex="-1">
-      <div class="modal-dialog modal-sm">
-          <div class="modal-content px-auto" style="">
-              <img class="loading" src="assets/img/loading/loading.gif">
-          </div>
-      </div>
-  </div>
+  
+
   <!-- Argon Scripts -->
   <!-- Core -->
   <script src="assets/login/JS/login.js"></script>

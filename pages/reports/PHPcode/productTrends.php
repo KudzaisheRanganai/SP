@@ -1,19 +1,10 @@
 <?php		
         include_once("../../sessionCheckPages.php");
         
-		$url = 'mysql://lf7jfljy0s7gycls:qzzxe2oaj0zj8q5a@u0zbt18wwjva9e0v.cbetxkdyhwsb.us-east-1.rds.amazonaws.com:3306/c0t1o13yl3wxe2h3';
-	
-		$dbparts = parse_url($url);
-
-		$hostname = $dbparts['host'];
-		$username = $dbparts['user'];
-		$password = $dbparts['pass'];
-		$database = ltrim($dbparts['path'],'/');
-
-		$con = mysqli_connect($hostname, $username, $password, $database);
+		include_once("DBConnection.php");
 
 		//Check connection
-		if (!$con) {
+		if (!$DBConnect) {
           die("Connection failed: " . mysqli_connect_error());
           
           
@@ -39,7 +30,7 @@
         FROM SALE
         ORDER BY SALE_DATE DESC 
         LIMIT 1 ";
-        $query = mysqli_query($con, $sql);
+        $query = mysqli_query($DBConnect, $sql);
 
         $dateModified;
 
@@ -67,12 +58,12 @@
                     GROUP BY PRODUCT.PRODUCT_ID
                     ORDER BY COUNT(PRODUCT.PRODUCT_ID) DESC";
             
-        $submit = mysqli_query($con,$alles_query);
+        $submit = mysqli_query($DBConnect,$alles_query);
      
         $employee_ID=" ";
 
         $getIDQuery = "SELECT * FROM USER WHERE USER_ID='$userID'";
-        $subIDQuery = mysqli_query($con , $getIDQuery);
+        $subIDQuery = mysqli_query($DBConnect , $getIDQuery);
 
         if(mysqli_num_rows($subIDQuery)>0)
         {
@@ -104,7 +95,7 @@
 			$Functionality_ID='12.4';
 			$userID = $_SESSION['userID'];
 			$audit_query="INSERT INTO AUDIT_LOG (AUDIT_DATE,USER_ID,SUB_FUNCTIONALITY_ID,CHANGES) VALUES('$DateAudit','$userID','$Functionality_ID','$changes')";
-			$audit_result=mysqli_query($con,$audit_query);  
+			$audit_result=mysqli_query($DBConnect,$audit_query);  
 
 	        //$vals['time_in']="d";
 	        echo json_encode($vals);
@@ -114,5 +105,7 @@
 	    else{
 	         echo "Empty";
 	    }
+
+        mysqli_close($DBConnect);
 
 	?>

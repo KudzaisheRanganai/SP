@@ -1,14 +1,14 @@
 <?php
-	$url = 'mysql://lf7jfljy0s7gycls:qzzxe2oaj0zj8q5a@u0zbt18wwjva9e0v.cbetxkdyhwsb.us-east-1.rds.amazonaws.com:3306/c0t1o13yl3wxe2h3';
-	
-	$dbparts = parse_url($url);
 
-	$hostname = $dbparts['host'];
-	$username = $dbparts['user'];
-	$password = $dbparts['pass'];
-	$database = ltrim($dbparts['path'],'/');
+	date_default_timezone_set('Africa/Johannesburg');
 
-	$con = mysqli_connect($hostname, $username, $password, $database);
+	define('DB_SERVER','localhost');
+  	define('DB_USERNAME','stockofc_sp');
+  	define('DB_PASSWORD','@System111');
+  	define('DB_NAME','stockofc_stockpath');
+   
+  	/* Attempt to connect to MySQL database */
+  	$con = mysqli_connect(DB_SERVER, DB_USERNAME, DB_PASSWORD, DB_NAME);
 
 	//Check connection
 	if (!$con) {

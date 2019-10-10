@@ -2,7 +2,7 @@
     include_once("../sessionCheckPages.php");
     include_once("PHPcode/connection.php");
     include_once("PHPcode/functions.php");
-    $help="../../help/AssignCollection.html";
+    $help="../../help/AssignDelivery.html";
     $truckData=getAllTrucks($con);
     $deliveryData=getUnassignedCollections($con,1);
     $addressData=getCompleteAddressCollection($con);

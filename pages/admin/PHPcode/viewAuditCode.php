@@ -1,19 +1,10 @@
 <?php
 		
 	 //db connection
-    $url = 'mysql://lf7jfljy0s7gycls:qzzxe2oaj0zj8q5a@u0zbt18wwjva9e0v.cbetxkdyhwsb.us-east-1.rds.amazonaws.com:3306/c0t1o13yl3wxe2h3';
-    
-    $dbparts = parse_url($url);
-
-    $hostname = $dbparts['host'];
-    $username = $dbparts['user'];
-    $password = $dbparts['pass'];
-    $database = ltrim($dbparts['path'],'/');
-
-    $con = mysqli_connect($hostname, $username, $password, $database);
+    include_once("DBConnection.php");
 
     //Check connection
-    if (!$con) {
+    if (!$DBConnect) {
       die("Connection failed: " . mysqli_connect_error());
     }
     else
@@ -25,7 +16,7 @@
 			INNER JOIN USER ON AUDIT_LOG.USER_ID = USER.USER_ID 
 			INNER JOIN EMPLOYEE ON USER.EMPLOYEE_ID = EMPLOYEE.EMPLOYEE_ID
 			INNER JOIN SUB_FUNCTIONALITY ON AUDIT_LOG.SUB_FUNCTIONALITY_ID = SUB_FUNCTIONALITY.SUB_FUNCTIONALITY_ID ORDER BY AUDIT_LOG.AUDIT_LOG_ID DESC";
-	    $result = mysqli_query($con,$sql_query);
+	    $result = mysqli_query($DBConnect,$sql_query);
 	    //$row = mysqli_fetch_array($result);
 
 	    if (mysqli_num_rows($result)>0) {
@@ -45,6 +36,8 @@
 	    else{
 	         echo "Error";
 	    }
+
+	    mysqli_close($DBConnect);
 
 	  }
 ?>

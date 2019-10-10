@@ -4,6 +4,8 @@
   include_once("../sessionCheckPages.php");
   $assignedDeliveryData=getAssignedCollections($con);
   $assignedDeliveryProductData=getAssignedCollectionProducts($con);
+  $help="../../help/MaintainAssignedDeliveries.html";
+  mysqli_close($con);
 
 ?>
 <!DOCTYPE html>
