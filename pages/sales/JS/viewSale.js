@@ -272,12 +272,10 @@ $("button#updateSaleStatus").on('click', event => {
 		},
 		beforeSend: function(){
             $('.loadingModal').modal('show');
-        },
-        complete: function(){
-            $('.loadingModal').modal('hide');
         }
 	})
 	.done(response => {
+		closeModal();
 		console.log(response);
 		if (response == "success")
 		{
@@ -355,7 +353,7 @@ $("button#calculateChangeButton").on('click', function(event){
 	        }
 		})
 		.done(response => {
-			$('.loadingModal').modal('hide');
+			closeModal();
 
 			console.log(response);
 			if (response == "success")
@@ -434,4 +432,9 @@ $("button#makeAccountPaymentButton").on('click', event => {
 		
 		ajaxDone = true;
 	});	
-})
+});
+function closeModal() {
+    $('.loadingModal').on('shown.bs.modal', function(e) {
+        $(".loadingModal").modal("hide");
+    });
+}

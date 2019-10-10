@@ -26,7 +26,11 @@ let buildProduct=function(tmp,arr)
 	tableEntry.append(nameEntry);
 	$("#tBody").append(tableEntry);
 }
-
+function closeModal() {
+    $('.loadingModal').on('shown.bs.modal', function(e) {
+        $(".loadingModal").modal("hide");
+    });
+}
 $(()=>{
 	assignments=JSON.parse($("#aData").text());
 	assignmentProducts=JSON.parse($("#apData").text());
@@ -125,7 +129,7 @@ $(()=>{
 			.done(data=>{
 				let doneData=data.split(",");
 				console.log(doneData);
-				$('.loadingModal').modal('hide');
+				closeModal();
 				if(doneData[0]=="T")
 				{
 					$('#MHeader').text("Success!");

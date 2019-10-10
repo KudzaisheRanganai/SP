@@ -498,14 +498,14 @@ $("button#confirmSalesManagerPassword").on('click', event => {
 			        	deliveryLatitude_: saleDeliveryLatitude
 			        },
 			        beforeSend: function(){
-			            //$('.loadingModal').modal('show');
+			            $('.loadingModal').modal('show');
 			            //console.log("Longitude => "+saleDeliveryLongitude+", Latitude => "+saleDeliveryLatitude);
 
 			        }
 	
 			    })
 			    .done(response => {
-			    	$('.loadingModal').modal('hide');
+			    	closeModal();
 			    	console.log(response);
 			    	var reponseArray = response.split(',');
 			    	INVOICE_SALE_ID = reponseArray[1];
@@ -910,7 +910,12 @@ $(document).on('change','.quantityBox',function(e){
 		//console.log($(this).val());
 		$(this).attr("style","border-color: #cad1d7; height: 2rem; color: #8898aa;")
 	}
-})
+});
+function closeModal() {
+    $('.loadingModal').on('shown.bs.modal', function(e) {
+        $(".loadingModal").modal("hide");
+    });
+}
 
 // calculateRowTotalUnitPrice(unitPriceElement);
 // calculateRowTotalQuantity(quantityElement);

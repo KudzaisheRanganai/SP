@@ -7,7 +7,11 @@ let getVals=function()
 	arr["capacity"]=$("#tCapacity").val();
 	return arr;
 }
-
+function closeModal() {
+    $('.loadingModal').on('shown.bs.modal', function(e) {
+        $(".loadingModal").modal("hide");
+    });
+}
 $(()=>{
 	jQuery.validator.setDefaults({
   		debug: true,
@@ -32,11 +36,9 @@ $(()=>{
 			beforeSend:function(){
 				$('.loadingModal').modal('show');
 			},
-			complete:function(){
-				$('.loadingModal').modal('hide');
-			}
 			})
 			.done(data=>{
+				closeModal();
 				let doneData=data.split(",");
 				if(doneData[0]=="T")
 				{

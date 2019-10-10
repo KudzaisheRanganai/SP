@@ -11,7 +11,7 @@ $(()=>{
         //console.log(data);
 
 
-            $('.loadingModal').modal('hide');
+        closeModal();
        
         if(data!="False")
         {
@@ -62,3 +62,8 @@ $(()=>{
         }
     });
 });
+function closeModal() {
+    $('.loadingModal').on('shown.bs.modal', function(e) {
+        $(".loadingModal").modal("hide");
+    });
+}
