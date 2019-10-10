@@ -7,11 +7,6 @@ let getVals=function()
 	arr["capacity"]=$("#tCapacity").val();
 	return arr;
 }
-function closeModal() {
-    $('.loadingModal').on('shown.bs.modal', function(e) {
-        $(".loadingModal").modal("hide");
-    });
-}
 $(()=>{
 	jQuery.validator.setDefaults({
   		debug: true,
@@ -32,13 +27,9 @@ $(()=>{
 			$.ajax({
 			url:'PHPcode/truckcode.php',
 			type:'POST',
-			data:{choice:1,registration:arr["registration"],name:arr["name"],capacity:arr["capacity"]},
-			beforeSend:function(){
-				$('.loadingModal').modal('show');
-			},
+			data:{choice:1,registration:arr["registration"],name:arr["name"],capacity:arr["capacity"]}
 			})
 			.done(data=>{
-				closeModal();
 				let doneData=data.split(",");
 				if(doneData[0]=="T")
 				{

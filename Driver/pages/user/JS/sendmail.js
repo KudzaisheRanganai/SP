@@ -7,15 +7,11 @@ $(document).ready(function(){
             $.ajax({
                 url:'../mailjet/mail_password.php',
                 type:'post',
-                data:{email:emailSent},
-                beforeSend: function(){
-                    $('.loadingModal').modal('show');
-                }
+                data:{email:emailSent}
             })
             .done(function(data)
                 {
                    
-                        closeModal();
                     
                     console.log(data);
                     let confirm = data.trim(); 
@@ -61,9 +57,3 @@ $(document).ready(function(){
      
     });
 });
-
-function closeModal() {
-    $('.loadingModal').on('shown.bs.modal', function(e) {
-        $(".loadingModal").modal("hide");
-    });
-}

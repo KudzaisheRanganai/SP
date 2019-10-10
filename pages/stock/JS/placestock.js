@@ -18,11 +18,6 @@ let preLoadSourceWarehouse= function(num)
 	groupDiv.append(labelDiv);
 	$("#sourceW").append(groupDiv);
 }
-function closeModal() {
-    $('.loadingModal').on('shown.bs.modal', function(e) {
-        $(".loadingModal").modal("hide");
-    });
-}
 let uncheckSource = function()
 {
 	$(".classSourceChecked").each(function(){
@@ -138,10 +133,7 @@ $(()=>{
 	$.ajax({
 		url:'PHPcode/stockcode.php',
 		type:'POST',
-		data:{choice:1},
-		beforeSend:function(){
-					$('.loadingModal').modal('show');
-		}
+		data:{choice:1}
 	})
 	.done(warehouseDetails=>{
 		warehouse=JSON.parse(warehouseDetails);
@@ -160,7 +152,6 @@ $(()=>{
 				data:{choice:3}
 			})
 			.done(warehouseProductDetails=>{
-				$('.loadingModal').modal('hide');
 				warehouseProduct=JSON.parse(warehouseProductDetails);
 				console.log(warehouseProduct);
 				for(let k=1;k<=warehouse.length;k++)
@@ -303,12 +294,8 @@ $(()=>{
 				url:'PHPcode/stockcode.php',
 				type:'POST',
 				data:{choice:4,source:sourceID,destination:destinationID,product:placeProducts,qty:placeProductQty,length:placeProducts.length},
-				beforeSend:function(){
-						$('.loadingModal').modal('show');
-				}
 				})
 				.done(data=>{
-					closeModal();
 					let doneData=data.split(",");
 					console.log(doneData);
 					if(doneData[0]=="T")

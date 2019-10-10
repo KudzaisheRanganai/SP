@@ -728,11 +728,6 @@ let suggestTruck=function()
   //console.log(suggestAssignments);
   
 }
-function closeModal() {
-    $('.loadingModal').on('shown.bs.modal', function(e) {
-        $(".loadingModal").modal("hide");
-    });
-}
 let suggestTruckAssign=function(proArr)
 {
   console.log(truckProgress);
@@ -1023,10 +1018,7 @@ $(()=>{
           $.ajax({
           url:'PHPcode/assigncollectioncode.php',
           type:'POST',
-          data:{choice:1,num:assignProductIDs.length,SALE_ID:deliverySelectID,PRODUCT_ID:assignProductIDs,QTY:assignProductQtys},
-          beforeSend:function(){
-            $('.loadingModal').modal('show');
-          }
+          data:{choice:1,num:assignProductIDs.length,SALE_ID:deliverySelectID,PRODUCT_ID:assignProductIDs,QTY:assignProductQtys}
           })
           .done(data=>{
             console.log(data);
@@ -1036,7 +1028,6 @@ $(()=>{
             data:{choice:2,DELIVERY_ID:delID["COLLECTION_ID"],num:assignProductIDs.length,SALE_ID:deliverySelectID,PRODUCT_ID:assignProductIDs,QTY:assignProductQtys,TRUCK_ID:truckSelectID}
             })
             .done(data=>{
-              closeModal();
               let doneData=data.split(",");
               console.log(doneData);
               if(doneData[0]=="T")

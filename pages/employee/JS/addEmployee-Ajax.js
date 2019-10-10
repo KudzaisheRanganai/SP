@@ -282,13 +282,9 @@ $(document).ready(function()
                         data: form,
                         processData: false,
                         contentType: false,
-                        cache: false,
-                        beforeSend: function(){
-                            $('.loadingModal').modal('show');
-                        }
+                        cache: false
                     })
                     .done(data=>{
-                        closeModal();
                         console.log(data);
                         let confirmation = data.trim();
                         if(confirmation.includes("success") && !confirmation.includes("Employee does not earn wage"))
@@ -446,10 +442,4 @@ function PreviewPic()
     pdffile=document.getElementById("fileUpload").files[0];
     pdffile_url=URL.createObjectURL(pdffile);
     $('#IDViewer').attr('src',pdffile_url);
-}
-
-function closeModal() {
-    $('.loadingModal').on('shown.bs.modal', function(e) {
-        $(".loadingModal").modal("hide");
-    });
 }

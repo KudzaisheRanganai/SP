@@ -19,11 +19,6 @@ let preLoadSourceWarehouse= function(num)
 	groupDiv.append(labelDiv);
 	$("#sourceW").append(groupDiv);
 }
-function closeModal() {
-    $('.loadingModal').on('shown.bs.modal', function(e) {
-        $(".loadingModal").modal("hide");
-    });
-}
 let uncheckSource = function()
 {
 	$(".classSourceChecked").each(function(){
@@ -124,13 +119,9 @@ $(()=>{
 			$.ajax({
 				url:'PHPcode/stocktakecode.php',
 				type:'POST',
-				data:{num:filteredProducts.length,warehouseID:sourceID,productIDs:assignProductIDs,productQtys:assignProductQtys,differenceQty:quantityDifference,userID:USERID,employeeID:EMPLOYEEID},
-				beforeSend:function(){
-					$('.loadingModal').modal('show');
-				}
+				data:{num:filteredProducts.length,warehouseID:sourceID,productIDs:assignProductIDs,productQtys:assignProductQtys,differenceQty:quantityDifference,userID:USERID,employeeID:EMPLOYEEID}
 			})
 			.done(data=>{
-				closeModal();
 				let doneData=data.split(",");
 				console.log(doneData);
 				if(doneData[0]=="T")

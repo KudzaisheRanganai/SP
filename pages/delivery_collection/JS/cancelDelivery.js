@@ -4,11 +4,6 @@ dctStatus[2]="Truck Assigned";
 dctStatus[3]="Final Assignment";
 dctStatus[4]="On Delivery";
 dctStatus[5]="Delivered";
-function closeModal() {
-    $('.loadingModal').on('shown.bs.modal', function(e) {
-        $(".loadingModal").modal("hide");
-    });
-}
 $(()=>{
 	let addressData=JSON.parse($("#aData").text());
 	let saleData=JSON.parse($("#sData").text());
@@ -33,13 +28,9 @@ $(()=>{
 			$.ajax({
 			url:'PHPcode/deliverycode.php',
 			type:'POST',
-			data:{choice:2,deliveryID:delID},
-			beforeSend:function(){
-				$('.loadingModal').modal('show');
-			}
+			data:{choice:2,deliveryID:delID}
 			})
 			.done(data=>{
-				closeModal();
 				let doneData=data.split(",");
 				if(doneData[0]=="T")
 				{

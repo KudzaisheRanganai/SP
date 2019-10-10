@@ -117,15 +117,11 @@ $(()=>{
 			$.ajax({
 				url:'PHPcode/makecollectioncode.php',
 				type:'POST',
-				data:{num:assignProductIDs.length,assignment:sendAssignment,productIDs:assignProductIDs,productQty:assignProductQtys,COLLECTION_TRUCK_ID:delTruckID},
-				beforeSend:function(){
-					$('.loadingModal').modal('show');
-				}
+				data:{num:assignProductIDs.length,assignment:sendAssignment,productIDs:assignProductIDs,productQty:assignProductQtys,COLLECTION_TRUCK_ID:delTruckID}
 			})
 			.done(data=>{
 				let doneData=data.split(",");
 				console.log(doneData);
-				closeModal();
 				if(doneData[0]=="T")
 				{
 					$('#MHeader').text("Success!");
@@ -149,9 +145,3 @@ $(()=>{
 
 	});
 });
-
-function closeModal() {
-    $('.loadingModal').on('shown.bs.modal', function(e) {
-        $(".loadingModal").modal("hide");
-    });
-}

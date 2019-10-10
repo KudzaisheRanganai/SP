@@ -76,12 +76,8 @@ $(document).ready(function(){
                             type: 'post',
                             url:'PHPcode/collect_wage-SQL.php',
                             data: {wageRate: rate, totalDue :totalPay , employee_ID:employeeID},
-                            beforeSend: function(){
-                                $('.loadingModal').modal('show');
-                            },
                             success: function(data)
                                 {
-                                    closeModal();
                                     console.log(data);
                                     let confirm = data.trim();
                                     if(confirm == "success")
@@ -116,9 +112,3 @@ $(document).ready(function(){
 
 
     });   
-
-function closeModal() {
-    $('.loadingModal').on('shown.bs.modal', function(e) {
-        $(".loadingModal").modal("hide");
-    });
-}

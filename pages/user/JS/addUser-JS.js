@@ -66,13 +66,9 @@ $(document).ready(function()
                     $.ajax({
                         url:"PHPcode/addUser-SQL.php",
                         type:'POST',
-                        data:{choice:1 , accessLevel:accessLevelID , email:username , pass:password , userStatusID :userStatus , employee_ID :employeeID},
-                        beforeSend: function(){
-                            $('.loadingModal').modal('show');
-                        }
+                        data:{choice:1 , accessLevel:accessLevelID , email:username , pass:password , userStatusID :userStatus , employee_ID :employeeID}
                     })
                     .done(data=>{
-                        closeModal();
                         console.log(data);
                         let confirmation = data.trim();
                         if(confirmation== "success")
@@ -108,8 +104,3 @@ $(document).ready(function()
 
 
 });
-function closeModal() {
-    $('.loadingModal').on('shown.bs.modal', function(e) {
-        $(".loadingModal").modal("hide");
-    });
-}

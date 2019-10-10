@@ -480,15 +480,7 @@ $(()=>{
 				url: 'PHPcode/customercode.php',
 				type: 'POST',
 				data:{choice:4,num:indcount,name:arr["name"],title:arr["title"],surname:arr["surname"],contact:arr["con"],email:arr["email"],address:arr["address"],suburb:arr["suburb"],city:arr["city"],zip:arr["zip"],customer_type:arr["customer_type"],status:arr["status"]}
-				,
-			    beforeSend: function(){
-			            $('.loadingModal').modal('show');
-			     },
-			     complete: function(){
-			           // closeModal();
-			     }
-			     }
-			     )
+			     })
 				.done(data=>{
 					//alert(data);
 					let doneData=data.split(",");
@@ -503,7 +495,6 @@ $(()=>{
 							})
 							.done(data=>{
 								//alert(data);
-								closeModal();
 								
 								if(data=="success")
 								{
@@ -532,7 +523,6 @@ $(()=>{
 					}
 					else
 					{
-						closeModal();
 						//alert(doneData[1]);
 						$('#modal-title-default2').text("Error!");
 						$('#modalText').text("Database error");
@@ -589,8 +579,6 @@ $(()=>{
 								})
 								.done(data=>{
 									//alert(data);
-									 closeModal();
-									
 									if(data=="success")
 									{
 										
@@ -623,7 +611,6 @@ $(()=>{
 					}
 					else
 					{
-						closeModal();
 						//alert(doneData[1]);
 						$('#modal-title-default2').text("Error!");
 						$('#modalText').text("Database error");

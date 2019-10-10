@@ -103,10 +103,7 @@ $(()=>{
 					PRODUCT_NAME_ : NAME,
 					PRODUCT_GROUP_ID_ : PRODUCT_GROUP_ID,
 					UNITS_PER_CASE_ : UNITS_PER_CASE
-				},
-				beforeSend: function() {
-		
-		    	}
+				}
 			})
 			.done(response => {
 				console.log(response);

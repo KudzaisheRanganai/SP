@@ -489,13 +489,8 @@ $(()=>{
 					url: 'PHPcode/customercode.php',
 					type: 'POST',
 					data:{choice:4,num:indcount,name:arr["name"],title:arr["title"],surname:arr["surname"],contact:arr["con"],email:arr["email"],address:arr["address"],suburb:arr["suburb"],city:arr["city"],zip:arr["zip"],customer_type:arr["customer_type"],status:arr["status"]}
-					,beforeSend: function(){
-				        $('.loadingModal').modal('show');
-				    }
 				})
 				.done(data=>{
-					//alert(data);
-					$('.loadingModal').modal('hide');
 					let doneData=data.split(",");
 					console.log(doneData);
 					if(doneData[0]=="T")
@@ -552,10 +547,7 @@ $(()=>{
 										type: 'POST',
 										data: { 
 											customerID : SALECUSTOMERID,
-										},
-										beforeSend: function() {
-								
-								    	}
+										}
 									})
 									.done(response => {
 										let customerAddressDetails = JSON.parse(response);
@@ -719,10 +711,7 @@ $(()=>{
 										type: 'POST',
 										data: { 
 											customerID : SALECUSTOMERID,
-										},
-										beforeSend: function() {
-								
-								    	}
+										}
 									})
 									.done(response => {
 										let customerAddressDetails = JSON.parse(response);

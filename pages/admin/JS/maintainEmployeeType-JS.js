@@ -88,13 +88,9 @@ console.log("Early");
                 $.ajax({
                     url:"PHPcode/maintainEmployeeType-SQL.php",
                     type:'POST',
-                    data:{choice:1 , accessLevel:accessLevelID , position:postionName , wage_earner:wageEarningID , employee_type_id:employeeTypeID},
-                    beforeSend:function(){
-                        $('.loadingModal').modal('show');
-                    }
+                    data:{choice:1 , accessLevel:accessLevelID , position:postionName , wage_earner:wageEarningID , employee_type_id:employeeTypeID}
                 })
                 .done(data=>{
-                    closeModal();
                     console.log(data);
                     let confirmation = data.trim();
                     if(confirmation== "success")

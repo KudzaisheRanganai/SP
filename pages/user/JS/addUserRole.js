@@ -77,14 +77,9 @@ $("#addUserRole").on("click",function(event)
             data:{
                 userRoleName_ : userRoleName,
                 subFunctionalities_ : subFunctionalities
-            },
-            beforeSend: function(){
-                $('.loadingModal').modal('show');
             }
         })
         .done(response =>{
-           
-            closeModal();
             console.log(response);
             
             if(response == "success")
@@ -117,8 +112,3 @@ $("#addUserRole").on("click",function(event)
     }  
 
 });
-function closeModal() {
-    $('.loadingModal').on('shown.bs.modal', function(e) {
-        $(".loadingModal").modal("hide");
-    });
-}

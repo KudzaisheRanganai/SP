@@ -6,11 +6,6 @@ let getVals=function()
 	arr["max"]=$("#wMax").val();
 	return arr;
 }
-function closeModal() {
-    $('.loadingModal').on('shown.bs.modal', function(e) {
-        $(".loadingModal").modal("hide");
-    });
-}
 $(()=>{
 	jQuery.validator.setDefaults({
   		debug: true,
@@ -30,13 +25,9 @@ $(()=>{
 			$.ajax({
 			url:'PHPcode/warehousecode.php',
 			type:'POST',
-			data:{choice:1,name:arr["name"],description:arr["des"],max:arr["max"]},
-			beforeSend:function(){
-					$('.loadingModal').modal('show');
-			}
+			data:{choice:1,name:arr["name"],description:arr["des"],max:arr["max"]}
 			})
 			.done(data=>{
-				closeModal();
 				let doneData=data.split(",");
 				if(doneData[0]=="T")
 				{

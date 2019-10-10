@@ -27,11 +27,6 @@ let buildTruck=function()
 		
 	}
 }
-function closeModal() {
-    $('.loadingModal').on('shown.bs.modal', function(e) {
-        $(".loadingModal").modal("hide");
-    });
-}
 let buildProduct=function(tmp,arr)
 {
 	let tableEntry=$("<tr></tr>");
@@ -174,10 +169,7 @@ $(()=>{
 			$.ajax({
 				url:'PHPcode/assigncollectioncode.php',
 				type:'POST',
-				data:{choice:5,TRUCK_ID:truckID},
-				beforeSend:function(){
-					$('.loadingModal').modal('show');
-				}
+				data:{choice:5,TRUCK_ID:truckID}
 			})
 			.done(data=>{
 				let salesForTruck=JSON.parse(data);
@@ -222,7 +214,6 @@ $(()=>{
 							data:{choice:4,remove:removeDeliveryAssignmentBool,SALE_ID:salesForTruck[k]["ORDER_ID"],TRUCK_ID:truckID}
 						})
 						.done(data=>{
-							closeModal();
 							console.log(data);
 							let doneData=data.split(",");
 							if(doneData[0]=="T")

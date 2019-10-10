@@ -53,10 +53,7 @@ $(()=>{
 	$.ajax({
 		url: 'PHPcode/customerAccount.php',
 		type: 'POST',
-		data: {customerID:CUSTOMER_ID},
-		beforeSend:function(){
-			$('.loadingModal').modal('show');
-		} 
+		data: {customerID:CUSTOMER_ID} 
 	})
 	.done(data=>{
 		if(data!="False")
@@ -72,7 +69,6 @@ $(()=>{
 				data: {customerID:CUSTOMER_ID}
 			})
 			.done(data=>{
-				closeModal();
 				let transactions=JSON.parse(data);
 				console.log(transactions);
 				for(let k=0;k<transactions.length;k++)
@@ -104,13 +100,9 @@ $(()=>{
 		$.ajax({
 			url: 'PHPcode/payCustomerAccount.php',
 			type: 'POST',
-			data: {customerID:CUSTOMER_ID,amount:payAmount},
-			beforeSend:function(){
-				$('.loadingModal').modal('show');
-			}
+			data: {customerID:CUSTOMER_ID,amount:payAmount}
 		})
 		.done(data=>{
-			closeModal();
 			console.log(data);
 			console.log(change);
 			if(data=="T")
@@ -152,15 +144,11 @@ $(()=>{
             url: "PHPcode/updateLimit.php",
             type: "POST",
             data:  new FormData(this),
-		    beforeSend: function(){
-		            $('.loadingModal').modal('show');
-		     },
             contentType: false,
             cache: false,
             processData: false,
             success: function(data){
                 console.log(data);
-                closeModal();
                 if(data=="success"){
                 	console.log("success");
             		$('#modal-title-default2').text("Success!");

@@ -16,13 +16,9 @@ $(()=>{
     $.ajax({
 		url: 'PHPcode/getProductTypes_.php',
 		type: 'POST',
-		data: '',
-		beforeSend:function(){
-			$('.loadingModal').modal('show');
-		}
+		data: ''
 	})
 	.done(data=>{
-		closeModal();
 		if(data!= false)
 		{
 			let arr = JSON.parse(data);
@@ -109,10 +105,7 @@ $("button#maintainProduct").on('click', event => {
 				sellingPrice_ : sellingPrice,
 				measurement_ : measurement,
 				measurementUnit_ : measurementUnit
-			},
-			beforeSend: function() {
-	
-	    	}
+			}
 		})
 		.done(response => {
 			console.log(response);
@@ -157,10 +150,4 @@ $("button#maintainProduct").on('click', event => {
 		});
 	}	
 });
-
-function closeModal() {
-    $('.loadingModal').on('shown.bs.modal', function(e) {
-        $(".loadingModal").modal("hide");
-    });
-}
 

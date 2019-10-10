@@ -10,14 +10,10 @@ $(document).ready(function(){
             $.ajax({
                 url:'PHPcode/dismissEmployee-SQL.php',
                 type:'post',
-                data:{employee_ID:employeeID, reason:dismissalReason},
-                beforeSend: function(){
-                    $('.loadingModal').modal('show');
-                }
+                data:{employee_ID:employeeID, reason:dismissalReason}
                 })
                 .done(data=>
                 {
-                    closeModal();
                     console.log(data);
                     let confirmation = data.trim();
                     if(confirmation=="success")
@@ -71,9 +67,3 @@ $(document).ready(function(){
 
     });
 });
-
-function closeModal() {
-    $('.loadingModal').on('shown.bs.modal', function(e) {
-        $(".loadingModal").modal("hide");
-    });
-}

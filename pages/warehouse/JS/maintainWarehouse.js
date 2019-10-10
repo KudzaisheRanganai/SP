@@ -7,11 +7,6 @@ let getVals=function()
 	arr["max"]=$("#wMax").val();
 	return arr;
 }
-function closeModal() {
-    $('.loadingModal').on('shown.bs.modal', function(e) {
-        $(".loadingModal").modal("hide");
-    });
-}
 ///////////////////////
 $(()=>{
 	jQuery.validator.setDefaults({
@@ -36,13 +31,9 @@ $(()=>{
 			$.ajax({
 				url:'PHPcode/warehousecode.php',
 				type:'POST',
-				data:{choice:2,ID:arr["ID"],name:arr["name"],description:arr["des"],max:arr["max"]},
-				beforeSend:function(){
-					$('.loadingModal').modal('show');
-				}
+				data:{choice:2,ID:arr["ID"],name:arr["name"],description:arr["des"],max:arr["max"]}
 			})
 			.done(data=>{
-				closeModal();
 				let doneData=data.split(",");
 				if(doneData[0]=="T")
 				{
@@ -72,13 +63,7 @@ $(()=>{
 		$.ajax({
 			url:'PHPcode/warehousecode.php',
 			type:'POST',
-			data:{choice:4,WAREHOUSE_ID:warehouseID},
-			beforeSend:function(){
-					$('.loadingModal').modal('show');
-			},
-			complete:function(){
-				$('.loadingModal').modal('hide');
-			}
+			data:{choice:4,WAREHOUSE_ID:warehouseID}
 		})
 		.done(data=>{
 			let doneData=data.split(",");

@@ -29,13 +29,9 @@ $(document).ready(function()
         $.ajax({
             url:"PHPcode/maintainInactivityLogoutTime.php",
             type:'POST',
-            data:{minutes: newMinutesTillCheckout},
-            beforeSend: function(){
-                $('.loadingModal').modal('show');
-            }
+            data:{minutes: newMinutesTillCheckout}
         })
         .done(data=>{
-            closeModal();
             console.log(data);
             let confirmation = data.trim();
             if(confirmation != "Failure")
