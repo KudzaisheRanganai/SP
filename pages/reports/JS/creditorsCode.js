@@ -24,7 +24,7 @@ $(()=>{
 
 
                     total=total+parseFloat(arr[k]["AMOUNT_OWED"]);
-                    tableEntries+="<tr><td class='no' colspan='3'>"+arr[k]["SUPPLIER_ID"]+"</td><td class='desc'>"+arr[k]["VAT_NUMBER"]+"</td><td class='unit'>"+arr[k]["NAME"]+"</td><td class='total'>"+amountOwed+"</td></tr>";
+                    tableEntries+="<tr><td class='no'>"+arr[k]["SUPPLIER_ID"]+"</td><td class='desc'>"+arr[k]["VAT_NUMBER"]+"</td><td class='unit'>"+arr[k]["NAME"]+"</td><td class='total'>"+amountOwed+"</td></tr>";
                     
                 }
                 $("#tbody").append(tableEntries);
