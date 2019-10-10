@@ -75,7 +75,7 @@ $(document).ready(function(){
                     }
                 })
                 .done(data=>{
-                    $('.loadingModal').modal('hide');
+                    closeModal();
                     console.log(data);
                     if(data=="success")
                     {
@@ -139,5 +139,11 @@ function PreviewRS()
     pdffile=document.getElementById("proofOfResidence").files[0];
     pdffile_url=URL.createObjectURL(pdffile);
     $('#RSViewer').attr('src',pdffile_url);
+}
+
+function closeModal() {
+    $('.loadingModal').on('shown.bs.modal', function(e) {
+        $(".loadingModal").modal("hide");
+    });
 }
 

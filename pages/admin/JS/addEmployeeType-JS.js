@@ -65,9 +65,13 @@ $(document).ready(function()
                 $.ajax({
                     url:"PHPcode/addEmployeeType-SQL.php",
                     type:'POST',
-                    data:{choice:1 , accessLevel:accessLevelID , position:postionName , wage_earner:wageEarningID}
+                    data:{choice:1 , accessLevel:accessLevelID , position:postionName , wage_earner:wageEarningID},
+                    beforeSend:function(){
+                        $('.loadingModal').modal('show');
+                    }
                 })
                 .done(data=>{
+                    closeModal();
 
                     console.log(data);
                     let confirmation = data.trim();
@@ -103,3 +107,9 @@ $(document).ready(function()
 
 
 });
+
+function closeModal() {
+    $('.loadingModal').on('shown.bs.modal', function(e) {
+        $(".loadingModal").modal("hide");
+    });
+}

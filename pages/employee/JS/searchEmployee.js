@@ -55,7 +55,7 @@ $(()=>{
 	     })
 	      .done(data => {
 	      // do something with data
-	      $('.loadingModal').modal('hide');
+	      closeModal();
             console.log(data);
             let confirmation = data.trim();
             
@@ -132,4 +132,10 @@ $(()=>{
   {
     $("#emptySearch").hide();
   }
+}
+
+function closeModal() {
+    $('.loadingModal').on('shown.bs.modal', function(e) {
+        $(".loadingModal").modal("hide");
+    });
 }

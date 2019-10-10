@@ -46,3 +46,9 @@ $(document).ready(function(){
 
     });
 });
+
+function closeModal() {
+    $('.loadingModal').on('shown.bs.modal', function(e) {
+        $(".loadingModal").modal("hide");
+    });
+}

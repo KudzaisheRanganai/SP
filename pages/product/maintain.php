@@ -175,6 +175,13 @@
       <?php include_once("../footer.php");?>
     </div>
   </div>
+  <div class="modal loadingModal fade bd-example-modal-lg justify-content-center" data-backdrop="static" data-keyboard="false" tabindex="-1">
+      <div class="modal-dialog modal-sm">
+          <div class="modal-content px-auto" style="">
+              <img class="loading" src="../../assets/img/loading/loading.gif">
+          </div>
+      </div>
+  </div>
   <input type='' name='CASES_PER_PALLET' value='<?php echo $_POST['CASES_PER_PALLET'] ?>'>
   <input type='hidden' name='COST_PRICE' value='<?php echo $_POST["COST_PRICE"] ?>'>
   <input type='hidden' name='GUIDE_DISCOUNT' value='<?php echo $_POST["GUIDE_DISCOUNT"] ?>'>

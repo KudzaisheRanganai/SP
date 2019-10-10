@@ -19,8 +19,6 @@ $(document).ready(function(){
                 }
             })
             .done(response => {
-                // $('.loadingModal').modal('hide');
-                $(".closeModal").click();
                 closeModal();
 
                 console.log(response);
