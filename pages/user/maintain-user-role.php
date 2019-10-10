@@ -141,9 +141,6 @@
                                   <div class="modal-content">
                                       <div class="modal-header" id="modalHeader">
                                           <h6 class="modal-title" id="modal-title-default">Success!</h6>
-                                          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                              <span aria-hidden="true">×</span>
-                                          </button>
                                       </div>      
                                       <div class="modal-body text-left">
                                           <p id="modalText"></p>
