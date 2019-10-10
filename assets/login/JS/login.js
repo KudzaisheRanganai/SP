@@ -1,4 +1,5 @@
 $(document).ready(function(){
+
     $("#login_button").click(function(e){
         e.preventDefault();
         $('#alert-login').empty();
@@ -18,7 +19,10 @@ $(document).ready(function(){
                 }
             })
             .done(response => {
-                $('.loadingModal').modal('hide');
+                // $('.loadingModal').modal('hide');
+                $(".closeModal").click();
+                closeModal();
+
                 console.log(response);
                 if(response=="success")
                 {
@@ -40,6 +44,9 @@ $(document).ready(function(){
                 {
                     $('#alert-login').append("<div class='alert alert-danger py-2' role='alert'><span class='alert-inner--text'>Login failed! </span></div>");    
                 }
+            })
+            .always(function() {
+                $('.loadingModal').modal('hide');
             });
         }
         else
@@ -57,3 +64,9 @@ $(document).ready(function(){
 
     });
 });
+
+function closeModal() {
+    $('.loadingModal').on('shown.bs.modal', function(e) {
+        $(".loadingModal").modal("hide");
+    });
+}
