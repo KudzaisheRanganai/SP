@@ -9,7 +9,7 @@ $messageData = [
     'Messages' => [
         [
             'From' => [
-                'Email' => 'webmaster@stockpath.co.za',
+                'Email' => 'u17174572@tuks.co.za',
                 'Name' => 'Greens Supermarket'
             ],
             'To' => [
