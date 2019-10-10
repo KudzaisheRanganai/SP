@@ -56,17 +56,11 @@
         <!-- Navigation -->
         <ul class="navbar-nav">
         <!-- Heading -->
-          <?php 
-          if (in_array("0", $accessLevels)) {
-          ?>
           <li class="nav-item">
             <a class="nav-link" href="../../dashboard.php">
               <i class="ni ni-tv-2 text-primary"></i> Dashboard
             </a>
           </li>
-          <?php
-            }
-          ?>
           
           <?php 
           if (in_array("1", $accessLevels)) {
