@@ -526,7 +526,7 @@ $("button#confirmSalesManagerPassword").on('click', event => {
 					}
 					else if(response == "failed")
 					{
-						$('.loadingModal').modal('hide');
+						
 						$('#modal-title-default2').text("Error!");
 						$('#modalText').text("Incorrect password entered");
 						$('#animation').html('<div class="crossx-circle"><div class="background"></div><div style="position: relative;"><div class="crossx draw" style="text-align:center; position: absolute !important;"></div><div class="crossx2 draw2" style="text-align:center; position: absolute !important;"></div></div></div>');
@@ -536,7 +536,7 @@ $("button#confirmSalesManagerPassword").on('click', event => {
 					}
 					else
 					{
-						$('.loadingModal').modal('hide');
+						
 						$('#modal-title-default2').text("Database Error!");
 						$('#modalText').text("Database error whilst verifying password");
 						$("#modalCloseButton").attr("onclick","");
@@ -552,7 +552,7 @@ $("button#confirmSalesManagerPassword").on('click', event => {
 		}
 		else if(response == "failed")
 		{
-			$('.loadingModal').modal('hide');
+			closeModal();
 			$('#modal-title-default2').text("Error!");
 			$('#modalText').text("Incorrect password entered");
 			$('#animation').html('<div class="crossx-circle"><div class="background"></div><div style="position: relative;"><div class="crossx draw" style="text-align:center; position: absolute !important;"></div><div class="crossx2 draw2" style="text-align:center; position: absolute !important;"></div></div></div>');
@@ -562,7 +562,7 @@ $("button#confirmSalesManagerPassword").on('click', event => {
 		}
 		else if(response == "Password empty")
 		{
-			$('.loadingModal').modal('hide');
+			closeModal();
 			$('#modal-title-default2').text("Error!");
 			$('#modalText').text("Please enter a password");
 			$('#animation').html('<div class="crossx-circle"><div class="background"></div><div style="position: relative;"><div class="crossx draw" style="text-align:center; position: absolute !important;"></div><div class="crossx2 draw2" style="text-align:center; position: absolute !important;"></div></div></div>');
@@ -572,7 +572,7 @@ $("button#confirmSalesManagerPassword").on('click', event => {
 		}
 		else
 		{
-			$('.loadingModal').modal('hide');
+			closeModal();
 			$('#modal-title-default2').text("Database Error!");
 			$('#modalText').text("Database error whilst verifying password");
 			$('#animation').html('<div class="crossx-circle"><div class="background"></div><div style="position: relative;"><div class="crossx draw" style="text-align:center; position: absolute !important;"></div><div class="crossx2 draw2" style="text-align:center; position: absolute !important;"></div></div></div>');
