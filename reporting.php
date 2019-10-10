@@ -481,11 +481,10 @@
               </div>            
             </div>
         </div>
+        <?php include_once("footer.php");?>
       </div>
-      <?php include_once("footer.php");?>
     </div>
   </div>
-</div>
 
 
 
