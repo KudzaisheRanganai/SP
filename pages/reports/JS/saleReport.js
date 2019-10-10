@@ -69,7 +69,7 @@ $(()=>{
                          
                              
                             total=total+parseFloat(arr[k]["SALE_AMOUNT"]);
-                             totalSales = arr[k]["TOTAL_SALES"];
+                             var totalSales = arr[k]["TOTAL_SALES"];
                              //console.log(totalSales);
                              formattedTime = daysOfTheWeek;
                              staticTotalSales =  parseFloat(arr[k]["SALE_AMOUNT"]);
@@ -90,7 +90,7 @@ $(()=>{
                          
                              
                             total=total+parseFloat(arr[k]["SALE_AMOUNT"]); 
-                             totalSales = arr[k]["TOTAL_SALES"];
+                             var totalSales = arr[k]["TOTAL_SALES"];
                              //console.log(totalSales);
                              formattedTime = daysOfTheWeek;
                              staticTotalSales =  parseFloat(arr[k]["SALE_AMOUNT"]);
