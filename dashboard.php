@@ -37,6 +37,9 @@
       </div>
     </nav>
 
+    <?php 
+      if (in_array("0", $subFunctionality)) {
+    ?>
     <!-- Header -->
     <div class="header bg-gradient-custom pb-8 pt-5 pt-md-8">
       <div class="container-fluid">
@@ -131,6 +134,7 @@
         </div>
       </div>
     </div>
+    
     <!-- Page content -->
     <div class="container-fluid mt--7">
       <div class="row">
@@ -173,6 +177,10 @@
           </div>
         </div>
       </div>
+      <?php
+        }
+      ?>
+
       <?php 
 
         
