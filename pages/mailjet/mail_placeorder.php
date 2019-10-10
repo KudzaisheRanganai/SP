@@ -8,8 +8,8 @@ $styleDiv = $_POST['styleDiv'];
 
 str_replace('<div id="logo"><img src="logo.png"></div>','', $orderHTML);
 
-$mailjetApiKey = 'dc7651212c03feea96f539e4b2303634';
-$mailjetApiSecret = '14e46c9f68a9d61e70f455e997f52141';
+$mailjetApiKey = '962a0c6bb1e35b09640053dadd79c38e';
+$mailjetApiSecret = 'd8601378a7597741833fe768d76e03e4';
 $messageData = [
     'Messages' => [
         [

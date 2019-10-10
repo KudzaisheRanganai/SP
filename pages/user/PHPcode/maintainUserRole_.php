@@ -59,7 +59,7 @@ include_once("../../sessionCheckPages.php");
       $arraySize = sizeof($userRoleFunctionalities);
       for ($i=0; $i < $arraySize; $i++) 
       { 
-        $queryFunctionality = "INSERT INTO ACCESS_LEVEL_FUNCTIONALITY(ACCESS_LEVEL_ID, FUNCTIONALITY_ID) VALUES( '$AccessLevelID','$userRoleFunctionalities[$i];')";
+        $queryFunctionality = "INSERT INTO ACCESS_LEVEL_FUNCTIONALITY(ACCESS_LEVEL_ID, FUNCTIONALITY_ID) VALUES( '$AccessLevelID','$userRoleFunctionalities[$i]')";
         mysqli_query($DBConnect, $queryFunctionality);
       }
 
