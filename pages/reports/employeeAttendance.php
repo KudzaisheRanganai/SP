@@ -1,4 +1,7 @@
-
+<?php
+  include_once("connection.php");
+  mysqli_close($con);
+?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
