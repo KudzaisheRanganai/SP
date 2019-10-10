@@ -1,7 +1,9 @@
 <?php 
+  include_once("PHPcode/connection.php");
   include_once("../sessionCheckPages.php");
   $orderDetails=json_decode($_POST["ordDetails"]);
   $help="../../help/ReceiveStock.html";
+  mysqli_close($con);
 ?>
 <!DOCTYPE html>
 <html>
