@@ -50,7 +50,7 @@ $(()=>{
 
 	var CUSTOMER_ID=$('#ID').attr('value');
 	console.log(CUSTOMER_ID);
-	$("#viewBS").attr("href","../../documents/"+CUSTOMER_ID+"/Bank-Statement.pdf");
+	$("#viewBS").attr("href","../../documents/"+CUSTOMER_ID+"/"+CUSTOMER_ID+"_Bank-Statement.pdf");
 	$.ajax({
 		url: 'PHPcode/customerAccount.php',
 		type: 'POST',
